@@ -1,0 +1,11 @@
+{
+  "thread_id": "test_thread_123",
+  "question_count": 1,
+  "feedback_scores": {
+    "올바른 답변": 5,
+    "도움됨": 4,
+    "구체성": 5
+  },
+  "comment": "테스트 피드백입니다.",
+  "timestamp": "2025-08-30T23:45:38.706992"
+}
