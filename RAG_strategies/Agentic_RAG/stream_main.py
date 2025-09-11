@@ -248,7 +248,7 @@ if user_input:
     if st.session_state["question_count"] % 5 == 0:
         with eval_container.form("feedback_form"):
             st.markdown("### 📝 답변을 평가해 주세요 🙏")
-            st.markdown("5번째 질문입니다. 소중한 피드백을 부탁드립니다!")
+            st.markdown("소중한 피드백을 부탁드립니다! 없으시면 괜찮아요!")
             
             # 피드백 창 열기 상태를 True로 설정
             st.session_state["open_feedback"] = True
