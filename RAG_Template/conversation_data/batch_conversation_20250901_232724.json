@@ -1,0 +1,33 @@
+{
+  "conversations": [
+    {
+      "thread_id": "33664d10-ebe4-4bec-9cc4-7b5a56e33d7c",
+      "question_count": 1,
+      "user_message": "안녕",
+      "ai_response": "안녕하세요.\n\n**Source**  \n- (No specific source in the provided context)",
+      "timestamp": "2025-09-01T23:21:54.300504"
+    },
+    {
+      "thread_id": "33664d10-ebe4-4bec-9cc4-7b5a56e33d7c",
+      "question_count": 2,
+      "user_message": "내 이름은 재호야",
+      "ai_response": "안녕하세요, 재호님. 만나서 반갑습니다.\n\n**Source**  \n- docling_outputs\\insight_Agentic.pdf.md (2)  \n- docling_outputs\\LangGraph-Based Integrated Architecture for CrewAI Multi-Agent.pdf.md (3)",
+      "timestamp": "2025-09-01T23:21:58.254135"
+    },
+    {
+      "thread_id": "33664d10-ebe4-4bec-9cc4-7b5a56e33d7c",
+      "question_count": 3,
+      "user_message": "내 이름이 뭐라고?",
+      "ai_response": "사용자 이름에 대한 정보가 제공된 문맥 내에 없습니다.\n\n**Source**  \n- (없음)",
+      "timestamp": "2025-09-01T23:22:00.520069"
+    },
+    {
+      "thread_id": "33664d10-ebe4-4bec-9cc4-7b5a56e33d7c",
+      "question_count": 4,
+      "user_message": "좋아좋아",
+      "ai_response": "\"좋아좋아\"는 긍정적인 표현으로, 특별한 추가 정보나 질문이 없으므로 별도의 답변이 필요하지 않습니다.  \n\n**Source**  \n- (No specific source in the provided context)",
+      "timestamp": "2025-09-01T23:27:22.656295"
+    }
+  ],
+  "batch_timestamp": "2025-09-01T23:27:22.656295"
+}

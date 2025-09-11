@@ -1,0 +1,40 @@
+{
+  "conversations": [
+    {
+      "thread_id": "a6f09f5e-7ce1-4939-8c06-f0e1f11a7028",
+      "question_count": 1,
+      "user_message": "안녕",
+      "ai_response": "안녕하세요.\n\n**Source**  \n- (No specific source in the provided context)",
+      "timestamp": "2025-09-01T22:07:02.451593"
+    },
+    {
+      "thread_id": "a6f09f5e-7ce1-4939-8c06-f0e1f11a7028",
+      "question_count": 2,
+      "user_message": "내이름은 김재호야",
+      "ai_response": "안녕하세요, 김재호님.\n\n**Source**  \n- docling_outputs\\LangGraph-Based Integrated Architecture for CrewAI Multi-Agent.pdf.md  \n- docling_outputs\\insight_Agentic.pdf.md",
+      "timestamp": "2025-09-01T22:07:08.436282"
+    },
+    {
+      "thread_id": "a6f09f5e-7ce1-4939-8c06-f0e1f11a7028",
+      "question_count": 3,
+      "user_message": "내 이름이 뭐라고?",
+      "ai_response": "사용자 이름 정보가 제공된 문맥에 없습니다.\n\n**Source**  \n- (없음)",
+      "timestamp": "2025-09-01T22:07:11.700990"
+    },
+    {
+      "thread_id": "a6f09f5e-7ce1-4939-8c06-f0e1f11a7028",
+      "question_count": 4,
+      "user_message": "내 이전 질문이 뭐였지?",
+      "ai_response": "이전 질문 내용은 제공된 컨텍스트 내에 없습니다.\n\n",
+      "timestamp": "2025-09-01T22:09:19.980694"
+    },
+    {
+      "thread_id": "a6f09f5e-7ce1-4939-8c06-f0e1f11a7028",
+      "question_count": 5,
+      "user_message": "storm rag",
+      "ai_response": "STORM RAG is a Retrieval-Augmented Generation (RAG) system scoring 68.5 points on a total evaluation scale, compared to CrewAI + LangGraph's 71.0 points. It shows strengths in basic metrics like topic relevance and conceptual accuracy but is outperformed by CrewAI + LangGraph in modular design clarity, operational flexibility, integration capability, and real-world adaptability. STORM RAG's architecture involves agent role division impacting information collection and response quality.\n\n**Source**  \n- docling_outputs\\LangGraph-Based Integrated Architecture for CrewAI Multi-Agent.pdf.md (pages 1-5)  \n- docling_outputs\\insight_Agentic.pdf.md",
+      "timestamp": "2025-09-01T22:09:39.180643"
+    }
+  ],
+  "batch_timestamp": "2025-09-01T22:09:39.180643"
+}

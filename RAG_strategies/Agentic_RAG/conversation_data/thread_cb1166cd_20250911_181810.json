@@ -1,0 +1,16 @@
+{
+  "thread_id": "cb1166cd-1181-412c-a746-0241564ec678",
+  "conversations": [
+    {
+      "thread_id": "cb1166cd-1181-412c-a746-0241564ec678",
+      "question_count": 1,
+      "user_message": "안녕",
+      "ai_response": "안녕하세요! 무엇을 도와드릴까요?",
+      "used_tools": [
+        "General LLM"
+      ],
+      "timestamp": "2025-09-11T18:18:08.263702"
+    }
+  ],
+  "last_updated": "2025-09-11T18:18:10.362547"
+}

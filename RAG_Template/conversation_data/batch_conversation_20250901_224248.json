@@ -1,0 +1,40 @@
+{
+  "conversations": [
+    {
+      "thread_id": "76b5e177-4208-4d21-b822-f8bc9277c242",
+      "question_count": 1,
+      "user_message": "안녕",
+      "ai_response": "안녕하세요! 무엇을 도와드릴까요?",
+      "timestamp": "2025-09-01T22:42:08.734963"
+    },
+    {
+      "thread_id": "76b5e177-4208-4d21-b822-f8bc9277c242",
+      "question_count": 2,
+      "user_message": "내 이름은 재호야",
+      "ai_response": "안녕하세요, 재호님.\n\n**Source**  \n- docling_outputs\\insight_Agentic.pdf.md (1)  \n- docling_outputs\\LangGraph-Based Integrated Architecture for CrewAI Multi-Agent.pdf.md (3)",
+      "timestamp": "2025-09-01T22:42:17.915795"
+    },
+    {
+      "thread_id": "76b5e177-4208-4d21-b822-f8bc9277c242",
+      "question_count": 3,
+      "user_message": "내 이름이 뭐라고?",
+      "ai_response": "사용자 이름에 대한 정보가 제공된 문맥이나 이전 대화가 없습니다. 따라서 사용자의 이름을 알 수 없습니다.",
+      "timestamp": "2025-09-01T22:42:22.338513"
+    },
+    {
+      "thread_id": "76b5e177-4208-4d21-b822-f8bc9277c242",
+      "question_count": 4,
+      "user_message": "아니 .. 내 이름은 김재호야",
+      "ai_response": "네, 김재호님은 수원대학교 컴퓨터학부 학사, 석사 졸업 후 박사과정 중이며, Langchain Opentutorial Core Contributor로 인공지능, LLM, RAG, AI Agent 분야에 관심이 있습니다.\n\n**Source**  \n- docling_outputs\\LangGraph-Based Integrated Architecture for CrewAI Multi-Agent.pdf.md  \n- docling_outputs\\insight_Agentic.pdf.md",
+      "timestamp": "2025-09-01T22:42:42.369035"
+    },
+    {
+      "thread_id": "76b5e177-4208-4d21-b822-f8bc9277c242",
+      "question_count": 5,
+      "user_message": "내 이름이 뭐냐고?",
+      "ai_response": "사용자님의 이름은 제공된 정보에 없습니다.\n\n",
+      "timestamp": "2025-09-01T22:42:46.436110"
+    }
+  ],
+  "batch_timestamp": "2025-09-01T22:42:46.437109"
+}

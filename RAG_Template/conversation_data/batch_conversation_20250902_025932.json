@@ -1,0 +1,12 @@
+{
+  "conversations": [
+    {
+      "thread_id": "5fc7e53d-de8a-4b09-8843-4506cb8bdcbd",
+      "question_count": 6,
+      "user_message": "내 이름은 진원이야",
+      "ai_response": "당신의 이름은 진원입니다.\n\n**Source**  \n- (없음, 대화 기록에서 확인)",
+      "timestamp": "2025-09-02T02:59:30.070778"
+    }
+  ],
+  "batch_timestamp": "2025-09-02T02:59:30.071778"
+}

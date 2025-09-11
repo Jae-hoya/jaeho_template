@@ -1,0 +1,40 @@
+{
+  "conversations": [
+    {
+      "thread_id": "5fc7e53d-de8a-4b09-8843-4506cb8bdcbd",
+      "question_count": 1,
+      "user_message": "내 이름은 진원이야",
+      "ai_response": "안녕하세요, 진원님. 만나서 반갑습니다.  \n\n**Source**  \n- (없음, 질문에 대한 직접적인 정보는 제공된 문서에 없습니다)",
+      "timestamp": "2025-09-02T02:30:06.416170"
+    },
+    {
+      "thread_id": "5fc7e53d-de8a-4b09-8843-4506cb8bdcbd",
+      "question_count": 2,
+      "user_message": "내 이름이 뭐라고?",
+      "ai_response": "당신의 이름은 진원입니다.\n\n**Source**  \n- (없음, 질문에 대한 직접적인 정보는 제공된 문서에 없습니다)",
+      "timestamp": "2025-09-02T02:30:11.999603"
+    },
+    {
+      "thread_id": "5fc7e53d-de8a-4b09-8843-4506cb8bdcbd",
+      "question_count": 3,
+      "user_message": "내 ㅣㅇ전질문이뭐였지?",
+      "ai_response": "이전 질문은 \"내 이름이 뭐라고?\"였습니다.\n\n**Source**  \n- (없음, 대화 기록에서 확인)",
+      "timestamp": "2025-09-02T02:30:19.702754"
+    },
+    {
+      "thread_id": "5fc7e53d-de8a-4b09-8843-4506cb8bdcbd",
+      "question_count": 4,
+      "user_message": "좋았어 고마워",
+      "ai_response": "천만에요! 도움이 필요하면 언제든 말씀해 주세요.\n\n**Source**  \n- (없음, 대화 기록에서 확인)",
+      "timestamp": "2025-09-02T02:30:42.467075"
+    },
+    {
+      "thread_id": "5fc7e53d-de8a-4b09-8843-4506cb8bdcbd",
+      "question_count": 5,
+      "user_message": "내 이름이 뭐라고?",
+      "ai_response": "당신의 이름은 진원입니다.\n\n**Source**  \n- (없음, 대화 기록에서 확인)",
+      "timestamp": "2025-09-02T02:30:49.805260"
+    }
+  ],
+  "batch_timestamp": "2025-09-02T02:30:49.806576"
+}

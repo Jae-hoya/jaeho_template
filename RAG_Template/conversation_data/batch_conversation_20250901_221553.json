@@ -1,0 +1,12 @@
+{
+  "conversations": [
+    {
+      "thread_id": "a6f09f5e-7ce1-4939-8c06-f0e1f11a7028",
+      "question_count": 6,
+      "user_message": "한국어로 설명해 줘야해",
+      "ai_response": "한국어로 설명해 드리겠습니다.\n\nLangGraph는 상태 기반 워크플로우와 메시지 패싱 시스템을 결합하여, 여러 에이전트가 복잡한 협업을 할 때 그 과정을 그래프로 시각화하고 제어할 수 있는 아키텍처입니다. 이를 통해 각 에이전트의 역할, 데이터 이동 경로, 오류 처리, 휴먼 인 더 루프(Human-in-the-loop) 같은 다양한 요구사항을 하나의 구조 안에서 직관적으로 표현할 수 있습니다.\n\n또한, 최근 연구에서는 LangGraph가 여러 언어 에이전트를 조합해 번역, 질의응답, 멀티도메인 지원 등 복합 문제 해결에 효과적임을 보여주고 있습니다. 특히, 검색 증강 생성(Retrieval-Augmented Generation, RAG) 구조가 발전하면서 단순 정보 검색을 넘어서 문서 요약, 필터링, 재질문 등 능동적이고 적응적인 정보 획득 전략(Agentic RAG, Adaptive RAG)이 멀티에이전트 시스템의 성능을 크게 향상시키고 있습니다.\n\n**Source**  \n- docling_outputs\\LangGraph-Based Integrated Architecture for CrewAI Multi-Agent.pdf.md (p.5)",
+      "timestamp": "2025-09-01T22:15:51.255609"
+    }
+  ],
+  "batch_timestamp": "2025-09-01T22:15:51.255609"
+}

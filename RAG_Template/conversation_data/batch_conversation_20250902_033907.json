@@ -1,0 +1,40 @@
+{
+  "conversations": [
+    {
+      "thread_id": "d373d3f2-b89e-40df-8df5-884efb77bc18",
+      "question_count": 1,
+      "user_message": "안녕 내 이름은 진원이야",
+      "ai_response": "안녕하세요, 진원님! 만나서 반갑습니다. 무엇을 도와드릴까요?",
+      "timestamp": "2025-09-02T03:38:17.183264"
+    },
+    {
+      "thread_id": "d373d3f2-b89e-40df-8df5-884efb77bc18",
+      "question_count": 2,
+      "user_message": "내 이름이 뭐라고?",
+      "ai_response": "당신의 이름은 진원입니다.\n\n**Source**  \n- 대화 기록 (Chat History)",
+      "timestamp": "2025-09-02T03:38:22.321743"
+    },
+    {
+      "thread_id": "d373d3f2-b89e-40df-8df5-884efb77bc18",
+      "question_count": 3,
+      "user_message": "내일저녁 뭐먹을까",
+      "ai_response": "내일 저녁 메뉴 추천 정보는 제공된 문서에 없습니다.\n\n**Source**  \n- 대화 기록 및 제공된 문서 내 관련 내용 없음",
+      "timestamp": "2025-09-02T03:38:48.043803"
+    },
+    {
+      "thread_id": "d373d3f2-b89e-40df-8df5-884efb77bc18",
+      "question_count": 4,
+      "user_message": "된장찌개 어때",
+      "ai_response": "된장찌개는 제공된 문서 내에 관련 정보가 없습니다.\n\n**Source**  \n- 대화 기록 및 제공된 문서 내 관련 내용 없음",
+      "timestamp": "2025-09-02T03:38:51.057772"
+    },
+    {
+      "thread_id": "d373d3f2-b89e-40df-8df5-884efb77bc18",
+      "question_count": 5,
+      "user_message": "self-rag",
+      "ai_response": "Self-RAG은 제공된 문서 내에 명확한 정의나 설명이 없습니다. 다만, RAG는 외부 문서 기반 검색을 통해 LLM이 내재하지 않은 지식을 실시간으로 보완하는 구조로, 실시간성, 도메인 유연성, 최신 정보 반영에 강점이 있으며, AI 에이전트 기반 modular RAG는 다양한 도구와 메모리, 사전 지식을 활용해 복합적 검색 및 추론을 수행하는 구조로 설명됩니다. Self-RAG에 대한 구체적 내용은 제공된 문서에 없습니다.\n\n**Source**  \n- docling_outputs\\insight_Agentic.pdf.md (p.2-5)",
+      "timestamp": "2025-09-02T03:39:04.868089"
+    }
+  ],
+  "batch_timestamp": "2025-09-02T03:39:04.868089"
+}

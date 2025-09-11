@@ -1,0 +1,40 @@
+{
+  "conversations": [
+    {
+      "thread_id": "d373d3f2-b89e-40df-8df5-884efb77bc18",
+      "question_count": 6,
+      "user_message": "rmflrhsms dma..",
+      "ai_response": "입력하신 \"rmflrhsms dma\"는 의미가 명확하지 않습니다. 추가 설명이나 정확한 질문을 부탁드립니다.\n\n**Source**  \n- 대화 기록",
+      "timestamp": "2025-09-02T03:39:14.912135"
+    },
+    {
+      "thread_id": "d373d3f2-b89e-40df-8df5-884efb77bc18",
+      "question_count": 7,
+      "user_message": "좋아좋ㅇ",
+      "ai_response": "입력하신 \"좋아좋ㅇ\"은 명확한 질문이나 의미가 포함되어 있지 않습니다. 추가로 궁금한 점이나 질문을 알려주시면 도움드리겠습니다.",
+      "timestamp": "2025-09-02T03:39:21.620264"
+    },
+    {
+      "thread_id": "d373d3f2-b89e-40df-8df5-884efb77bc18",
+      "question_count": 8,
+      "user_message": "ㅏ음 앙",
+      "ai_response": "입력하신 \"ㅏ음 앙\"은 명확한 의미나 질문이 포함되어 있지 않습니다. 추가 설명이나 구체적인 질문을 부탁드립니다.",
+      "timestamp": "2025-09-02T03:39:26.709006"
+    },
+    {
+      "thread_id": "d373d3f2-b89e-40df-8df5-884efb77bc18",
+      "question_count": 9,
+      "user_message": "졸려",
+      "ai_response": "졸리시면 잠시 휴식을 취하거나 수면을 권장합니다.\n\n**Source**  \n- 대화 기록",
+      "timestamp": "2025-09-02T03:39:29.005635"
+    },
+    {
+      "thread_id": "d373d3f2-b89e-40df-8df5-884efb77bc18",
+      "question_count": 10,
+      "user_message": "어떻게 하면 잘자?",
+      "ai_response": "잘 자기 위해서는 규칙적인 수면 습관을 유지하고, 잠자기 전 휴식을 취하며, 편안한 환경을 조성하는 것이 중요합니다. 또한, 과도한 카페인 섭취를 피하고, 스마트폰 등 전자기기 사용을 줄이는 것이 도움이 됩니다.\n\n**Source**  \n- 대화 기록",
+      "timestamp": "2025-09-02T03:39:35.958583"
+    }
+  ],
+  "batch_timestamp": "2025-09-02T03:39:35.959613"
+}

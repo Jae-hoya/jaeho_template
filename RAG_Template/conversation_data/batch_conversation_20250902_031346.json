@@ -1,0 +1,26 @@
+{
+  "conversations": [
+    {
+      "thread_id": "aa22b121-a10b-4771-bb62-f7fd1ed81d8e",
+      "question_count": 1,
+      "user_message": "내 이름은 진원이야",
+      "ai_response": "안녕하세요, 진원님. 만나서 반갑습니다.  \n\n**Source**  \n- (No specific source in the provided context)",
+      "timestamp": "2025-09-02T03:03:52.385431"
+    },
+    {
+      "thread_id": "aa22b121-a10b-4771-bb62-f7fd1ed81d8e",
+      "question_count": 2,
+      "user_message": "내 이름이 뭐라고?",
+      "ai_response": "사용자 이름에 대한 정보가 제공된 문맥 내에 없습니다.\n\n",
+      "timestamp": "2025-09-02T03:03:56.563855"
+    },
+    {
+      "thread_id": "aa22b121-a10b-4771-bb62-f7fd1ed81d8e",
+      "question_count": 4,
+      "user_message": "내 이름이 뭐라고?",
+      "ai_response": "사용자 이름에 대한 정보가 제공된 문맥 내에 없습니다.\n\n",
+      "timestamp": "2025-09-02T03:13:44.043434"
+    }
+  ],
+  "batch_timestamp": "2025-09-02T03:13:44.043434"
+}

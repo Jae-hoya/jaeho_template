@@ -1,0 +1,20 @@
+{
+  "thread_id": "1897df57-2b8b-4a84-8afb-357fa66acfd0",
+  "conversations": [
+    {
+      "thread_id": "1897df57-2b8b-4a84-8afb-357fa66acfd0",
+      "question_count": 1,
+      "user_message": "내이름은 진원이야",
+      "ai_response": "당신의 이름은 진원입니다.",
+      "timestamp": "2025-09-02T03:53:03.569797"
+    },
+    {
+      "thread_id": "1897df57-2b8b-4a84-8afb-357fa66acfd0",
+      "question_count": 2,
+      "user_message": "내 이름이 뭐라고?",
+      "ai_response": "당신의 이름은 진원입니다.\n\n**Source**  \n- Chat history",
+      "timestamp": "2025-09-02T03:53:09.423301"
+    }
+  ],
+  "last_updated": "2025-09-02T03:53:11.649929"
+}
