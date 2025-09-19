@@ -2,14 +2,18 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # node에서 받지 않은것들: retriever, rag_chain, llm(general_answer_node)
-from RAG.retriever import QdrantRetrieverFactory
+from RAG.retriever import QdrantRetrieverFactory, FAISSRetrieverFactory
 from RAG.rag import rag
 from nodes import *
 from states import GraphState
 
 qs = QdrantRetrieverFactory()
+faiss = FAISSRetrieverFactory()
 
-retriever = qs.retriever(collection_name="RAG_Template")
+DB_INDEX = "LANGCHAIN_FAISS_DB_INDEX"
+# retriever = qs.retriever(collection_name="RAG_Template")
+retriever = faiss.retriever(index_path=DB_INDEX, fetch_k=3)
+
 
 from langgraph.graph import END, StateGraph, START
 from langgraph.checkpoint.memory import MemorySaver
@@ -18,7 +22,7 @@ from langchain_openai import ChatOpenAI
 import streamlit as st
 
 def create_graph():
-    retriever = qs.retriever(collection_name="RAG_Template")
+    retriever = qs.retriever(index_path=DB_INDEX)
     chain = rag(retriever)
 
     # 그래프 상태 초기화
