@@ -1,4 +1,4 @@
-# Core dependencies for Streamlit Cloud deployment
+# Minimal dependencies for Streamlit Cloud
 streamlit>=1.43.2
 langchain>=0.3.21
 langchain-core>=0.3.46
