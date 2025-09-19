@@ -19,6 +19,7 @@ langchainhub>=0.1.21
 langgraph>=0.3.18
 langgraph-checkpoint>=2.1.1
 langsmith>=0.3.18
+langchain-ollama==0.2.3
 
 # AI/ML 모델 및 서비스
 openai>=1.67.0
