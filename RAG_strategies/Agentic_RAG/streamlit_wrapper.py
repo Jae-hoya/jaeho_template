@@ -11,7 +11,7 @@ from langgraph.errors import GraphRecursionError
 import streamlit as st
 
 # QdrantRetrieverFactory 인스턴스 생성
-qs = QdrantRetrieverFactory()
+# qs = QdrantRetrieverFactory()
 faiss = FAISSRetrieverFactory()
 
 def create_graph():
