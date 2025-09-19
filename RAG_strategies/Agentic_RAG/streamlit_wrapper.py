@@ -23,9 +23,16 @@ def create_graph():
     Returns:
         graph: 컴파일된 Agentic RAG 그래프
     """
+    import os
+    
+    # FAISS 인덱스 파일 경로 확인
+    index_path = "LANGCHAIN_FAISS_DB_INDEX"
+    faiss_file = os.path.join(index_path, "index.faiss")
+    pkl_file = os.path.join(index_path, "index.pkl")
+    
     # Retriever 생성 (FAISS 인덱스 사용)
     retriever = faiss.retriever(
-        index_path="/RAG_strategies/Agentic_RAG/LANGCHAIN_FAISS_DB_INDEX",
+        index_path=index_path,
         fetch_k=3
     )
     
