@@ -1,4 +1,0 @@
-# System packages for Korean NLP
-libmecab-dev
-mecab-ko
-mecab-ko-dic
