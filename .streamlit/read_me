@@ -1,4 +1,0 @@
-모든 streamlit을 배포하기 위한 방법
-
-폴더안에 .streamlit을 생성하고, 그에대한 설정을 주기위해 config.toml을 생성 (https://docs.streamlit.io/develop/api-reference/configuration/config.toml)
-

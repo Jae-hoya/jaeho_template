@@ -8,7 +8,7 @@ base = "light"
 primaryColor = '#027373'
 
 # 메인 컨텐치 영역
-backgroundColor = "#F2EDC"
+backgroundColor = "#F2E7DC"
 
 # 사이드바와 대부분의 대화형 위젯에 사용되는 배경
 scondaryBackgroundColor = '#A9D9D0'
