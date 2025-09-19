@@ -34,6 +34,24 @@ def create_graph():
     
     return graph
 
+# def create_graph():
+#     """
+#     Agentic RAG 그래프 생성
+    
+#     Returns:
+#         graph: 컴파일된 Agentic RAG 그래프
+#     """
+#     # Retriever 생성 (SPRI AI Brief 컬렉션 사용)
+#     retriever = qs.retriever(
+#         collection_name="RAG_Example(RAG_strategies)", 
+#         fetch_k=3
+#     )
+    
+#     # Agentic RAG 그래프 생성 (메모리 포함)
+#     graph = create_agentic_rag_graph(retriever, use_memory=True)
+    
+#     return graph
+
 def stream_graph(app, query, streamlit_container, thread_id, chat_history=None):
     """
     Agentic RAG 그래프를 스트리밍으로 실행
