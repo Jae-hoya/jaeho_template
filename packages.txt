@@ -1,0 +1,5 @@
+# Streamlit Cloud에서 시스템 패키지 설치용
+# 한국어 자연어 처리를 위한 시스템 패키지들
+libmecab-dev
+mecab-ko
+mecab-ko-dic

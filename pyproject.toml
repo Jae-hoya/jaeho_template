@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "agentic-rag-system"
+name = "rag-system"
 version = "1.0.0"
 authors = ["김재호 <skyop455@gmail.com>"]
 license = "MIT"
@@ -17,7 +17,7 @@ langchain-community = "0.*"
 langchain-openai = "0.*"
 langchain-anthropic = "0.*"
 langchain-text-splitters = "0.*"
-langchain-chroma = "0.*"1
+langchain-chroma = "0.*"
 langchain-cohere = "0.*"
 langchain-milvus = "0.*"
 langchain-google-genai = "2.*"
