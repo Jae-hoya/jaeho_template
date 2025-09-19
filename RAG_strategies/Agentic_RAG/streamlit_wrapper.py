@@ -14,7 +14,7 @@ import streamlit as st
 qs = QdrantRetrieverFactory()
 faiss = FAISSRetrieverFactory()
 
-DB_INDEX = "LANGCHAIN_FAISS_DB_INDEX"
+DB_INDEX = "LANGCHAIN_FAISS_DB_INDEX/index.faiss"
 
 def create_graph():
     """
@@ -25,7 +25,7 @@ def create_graph():
     """
     # Retriever 생성 (FAISS 인덱스 사용)
     retriever = faiss.retriever(
-        index_path=f"LANGCHAIN_FAISS_DB_INDEX",
+        index_path=DB_INDEX,
         fetch_k=3
     )
     
