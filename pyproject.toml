@@ -1,0 +1,133 @@
+[tool.poetry]
+name = "agentic-rag-system"
+version = "1.0.0"
+authors = ["김재호 <skyop455@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.13"
+
+# LangChain 생태계
+langchain = "0.*"
+langchain-core = "0.*"
+langchain-experimental = "0.*"
+langchain-community = "0.*"
+langchain-openai = "0.*"
+langchain-anthropic = "0.*"
+langchain-text-splitters = "0.*"
+langchain-chroma = "0.*"1
+langchain-cohere = "0.*"
+langchain-milvus = "0.*"
+langchain-google-genai = "2.*"
+langchain-huggingface = "0.*"
+langchain-azure-ai = "0.*"
+langchain-teddynote = "0.*"
+langchainhub = "0.*"
+langgraph = "0.*"
+langsmith = "0.*"
+
+# AI/ML 모델 및 서비스
+openai = "1.*"
+anthropic = "0.*"
+huggingface-hub = "0.*"
+sentence-transformers = "5.*"
+tiktoken = "0.*"
+
+# 데이터 처리 및 분석
+pandas = "2.*"
+numpy = "1.*"
+rank-bm25 = "0.*"
+scikit-learn = "1.*"
+
+# 벡터 데이터베이스 및 검색
+chromadb = "0.*"
+faiss-cpu = "1.*"
+pinecone = "5.*"
+qdrant-client = "1.*"
+
+# PDF 및 문서 처리
+pymupdf = "1.*"
+pypdf = "4.*"
+pdfplumber = "0.*"
+pdfminer-six = "20231228"
+pymupdf4llm = "0.*"
+docling = "2.*"
+unstructured = {version = "0.*", extras = ["all-docs"]}
+docx2txt = "0.*"
+
+# 웹 및 API
+requests = "2.*"
+httpx = "0.*"
+beautifulsoup4 = "4.*"
+wikipedia = "1.*"
+google-search-results = "2.*"
+
+# 시각화 및 UI
+streamlit = "1.*"
+matplotlib = "3.*"
+seaborn = "0.*"
+altair = "5.*"
+
+# 딥러닝 및 머신러닝
+torch = "2.*"
+torchvision = "0.*"
+open-clip-torch = "2.*"
+onnxruntime = "1.*"
+rapidocr-onnxruntime = "1.*"
+
+# 한국어 자연어 처리
+kiwipiepy = "0.*"
+konlpy = "0.*"
+
+# 데이터베이스 및 캐시
+redis = "5.*"
+sqlalchemy = "2.*"
+
+# 유틸리티
+python-dotenv = "1.*"
+pydantic = "2.*"
+tenacity = "8.*"
+nest-asyncio = "1.*"
+uvicorn = "0.*"
+fastapi = "0.*"
+
+# 파일 처리
+lxml = "5.*"
+pillow = "10.*"
+lark = "1.*"
+
+# 평가 및 메트릭
+ragas = "0.*"
+rouge-score = "0.*"
+flashrank = "0.*"
+
+# 기타
+arxiv = "2.*"
+protobuf = "3.*"
+llama-index-core = "0.*"
+llama-parse = "0.*"
+llama-index-readers-file = "0.*"
+grandalf = "0.*"
+mypy = "1.*"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "7.*"
+black = "23.*"
+flake8 = "6.*"
+mypy = "1.*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
