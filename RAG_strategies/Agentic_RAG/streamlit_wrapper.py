@@ -9,45 +9,13 @@ from langchain_core.runnables import RunnableConfig
 from langgraph.errors import GraphRecursionError
 
 import streamlit as st
-import os
-from pathlib import Path
 
 # QdrantRetrieverFactory 인스턴스 생성
 qs = QdrantRetrieverFactory()
 faiss = FAISSRetrieverFactory()
 
 DB_INDEX = "LANGCHAIN_FAISS_DB_INDEX"
-
-def find_faiss_index_path():
-    """
-    FAISS 인덱스 파일의 경로를 동적으로 찾는 함수
-    Streamlit.io 배포 환경과 로컬 환경 모두에서 작동
-    """
-    possible_paths = [
-        "LANGCHAIN_FAISS_DB_INDEX",  # 현재 디렉토리 기준
-        "./LANGCHAIN_FAISS_DB_INDEX",  # 명시적 현재 디렉토리
-        "../LANGCHAIN_FAISS_DB_INDEX",  # 상위 디렉토리
-        "RAG_strategies/Agentic_RAG/LANGCHAIN_FAISS_DB_INDEX",  # 상대 경로
-        "/mount/src/jaeho_template/RAG_strategies/Agentic_RAG/LANGCHAIN_FAISS_DB_INDEX",  # Streamlit.io 절대 경로
-    ]
-    
-    for path in possible_paths:
-        if os.path.exists(path) and os.path.isdir(path):
-            # index.faiss와 index.pkl 파일이 모두 존재하는지 확인
-            faiss_file = os.path.join(path, "index.faiss")
-            pkl_file = os.path.join(path, "index.pkl")
-            if os.path.exists(faiss_file) and os.path.exists(pkl_file):
-                print(f"FAISS 인덱스 발견: {path}")
-                return path
-    
-    # 파일을 찾지 못한 경우
-    print("FAISS 인덱스 파일을 찾을 수 없습니다. 가능한 경로들:")
-    for path in possible_paths:
-        print(f"  - {path}: {'존재함' if os.path.exists(path) else '존재하지 않음'}")
-    
-    # 기본값 반환 (오류 발생 시)
-    return "LANGCHAIN_FAISS_DB_INDEX"
-
+# ./jaeho_template/RAG_strategies/Agentic_RAG/LANGCHAIN_FAISS_DB_INDEX
 def create_graph():
     """
     Agentic RAG 그래프 생성
@@ -55,32 +23,11 @@ def create_graph():
     Returns:
         graph: 컴파일된 Agentic RAG 그래프
     """
-    try:
-        # FAISS 인덱스 경로 동적 탐색
-        index_path = find_faiss_index_path()
-        
-        # Retriever 생성 (FAISS 인덱스 사용)
-        retriever = faiss.retriever(
-            index_path=index_path,
-            fetch_k=3
-        )
-        
-        print(f"FAISS Retriever 성공적으로 생성됨: {index_path}")
-        
-    except Exception as e:
-        print(f"FAISS Retriever 생성 실패: {e}")
-        print("Qdrant Retriever로 대체합니다...")
-        
-        # FAISS 실패 시 Qdrant 사용 (대안)
-        try:
-            retriever = qs.retriever(
-                collection_name="RAG_Example(RAG_strategies)", 
-                fetch_k=3
-            )
-            print("Qdrant Retriever로 대체 성공")
-        except Exception as qdrant_error:
-            print(f"Qdrant Retriever도 실패: {qdrant_error}")
-            raise Exception("모든 Retriever 생성에 실패했습니다. FAISS 인덱스 파일을 확인해주세요.")
+    # Retriever 생성 (FAISS 인덱스 사용)
+    retriever = faiss.retriever(
+        index_path=DB_INDEX,
+        fetch_k=3
+    )
     
     # Agentic RAG 그래프 생성 (메모리 포함)
     graph = create_agentic_rag_graph(retriever, use_memory=True)
