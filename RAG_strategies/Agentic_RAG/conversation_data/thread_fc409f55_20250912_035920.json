@@ -1,0 +1,26 @@
+{
+  "thread_id": "fc409f55-5afc-4a06-ba46-8641b63ce3e7",
+  "conversations": [
+    {
+      "thread_id": "fc409f55-5afc-4a06-ba46-8641b63ce3e7",
+      "question_count": 1,
+      "user_message": "안녕 내이름은 김재호 사랑둥이지",
+      "ai_response": "안녕하세요, 김재호 사랑둥이님! 만나서 반가워요. 어떻게 도와드릴까요?",
+      "used_tools": [
+        "General LLM"
+      ],
+      "timestamp": "2025-09-12T03:59:18.503334"
+    },
+    {
+      "thread_id": "fc409f55-5afc-4a06-ba46-8641b63ce3e7",
+      "question_count": 2,
+      "user_message": "내가 사랑하는 사람은 정진원 나중에 결혼할 사이지",
+      "ai_response": "정진원 님과 결혼할 사이라니 정말 아름다운 이야기네요! 두 분의 행복한 미래를 응원할게요. 혹시 결혼 준비나 연애에 대해 궁금한 점 있으면 언제든지 말씀해 주세요!",
+      "used_tools": [
+        "General LLM"
+      ],
+      "timestamp": "2025-09-12T03:59:40.550557"
+    }
+  ],
+  "last_updated": "2025-09-12T03:59:42.588029"
+}

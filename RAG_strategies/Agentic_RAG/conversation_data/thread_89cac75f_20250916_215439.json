@@ -1,0 +1,18 @@
+{
+  "thread_id": "89cac75f-1d99-4abe-84c7-5dd1a79a5dd6",
+  "conversations": [
+    {
+      "thread_id": "89cac75f-1d99-4abe-84c7-5dd1a79a5dd6",
+      "question_count": 1,
+      "user_message": "메이플랜드 설치하는방법 알려줘",
+      "ai_response": "메이플랜드 설치 방법은 다음과 같습니다:\n\n1. PC에서 설치할 경우:\n   - 메이플월드 사이트에서 \"메이플랜드\"를 검색 후 접속합니다.\n   - 넥슨 계정으로 로그인합니다.\n   - 넥슨 게임 매니저가 설치되어 있지 않다면, 설치를 진행합니다.\n   - 설치가 완료되면 메이플랜드를 실행할 수 있습니다.\n\n2. 모바일에서 설치할 경우:\n   - 앱 마켓(구글 플레이스토어, 애플 앱스토어)에서 \"메이플랜드\"를 검색하여 다운로드 후 실행합니다.\n\n더 자세한 설치 방법이나 직업 추천 등은 아래 링크에서 확인할 수 있습니다.\n- https://jjeongjjeongcp.tistory.com/152\n- https://tipsu.tistory.com/entry/%EB%A9%94%EC%9D%B4%ED%94%8C%EB%9E%9C%EB%93%9C-%ED%95%98%EB%8A%94%EB%B2%95-%EB%B9%85%EB%B1%85-%EC%A0%84-%EC%B6%94%EC%96%B5%EC%9D%98-%EB%A9%94%EC%9D%B4%ED%94%8C-%ED%95%B4%EB%B3%B4%EA%B8%B0\n\n필요하면 더 구체적인 안내도 도와드릴 수 있습니다.",
+      "used_tools": [
+        "General LLM",
+        "Retriever",
+        "Researcher"
+      ],
+      "timestamp": "2025-09-16T21:54:37.369871"
+    }
+  ],
+  "last_updated": "2025-09-16T21:54:39.425026"
+}
