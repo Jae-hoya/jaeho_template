@@ -25,7 +25,7 @@ def create_graph():
     """
     # Retriever 생성 (FAISS 인덱스 사용)
     retriever = faiss.retriever(
-        index_path=DB_INDEX,
+        index_path="LANGCHAIN_FAISS_DB_INDEX",
         fetch_k=3
     )
     
