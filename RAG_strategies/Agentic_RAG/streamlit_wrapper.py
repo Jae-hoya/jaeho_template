@@ -15,6 +15,7 @@ qs = QdrantRetrieverFactory()
 faiss = FAISSRetrieverFactory()
 
 DB_INDEX = "LANGCHAIN_FAISS_DB_INDEX"
+# RAG_strategies/Agentic_RAG/LANGCHAIN_FAISS_DB_INDEX
 # ./jaeho_template/RAG_strategies/Agentic_RAG/LANGCHAIN_FAISS_DB_INDEX
 def create_graph():
     """
