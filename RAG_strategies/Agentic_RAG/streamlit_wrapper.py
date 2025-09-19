@@ -15,7 +15,7 @@ qs = QdrantRetrieverFactory()
 faiss = FAISSRetrieverFactory()
 
 DB_INDEX = "LANGCHAIN_FAISS_DB_INDEX/index.faiss"
-
+# ./jaeho_template/RAG_strategies/Agentic_RAG/LANGCHAIN_FAISS_DB_INDEX
 def create_graph():
     """
     Agentic RAG 그래프 생성
@@ -25,7 +25,7 @@ def create_graph():
     """
     # Retriever 생성 (FAISS 인덱스 사용)
     retriever = faiss.retriever(
-        index_path=DB_INDEX,
+        index_path="./jaeho_template/RAG_strategies/Agentic_RAG/LANGCHAIN_FAISS_DB_INDEX",
         fetch_k=3
     )
     
