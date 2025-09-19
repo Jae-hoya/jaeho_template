@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Agentic RAG 시스템 모듈들 import
-from retriever import QdrantRetrieverFactory
+from retriever import QdrantRetrieverFactory, FAISSRetrieverFactory
 from graph import create_agentic_rag_graph
 from langchain_core.messages import HumanMessage
 from langchain_core.runnables import RunnableConfig
@@ -12,6 +12,7 @@ import streamlit as st
 
 # QdrantRetrieverFactory 인스턴스 생성
 qs = QdrantRetrieverFactory()
+faiss = FAISSRetrieverFactory()
 
 def create_graph():
     """
@@ -21,7 +22,7 @@ def create_graph():
         graph: 컴파일된 Agentic RAG 그래프
     """
     # Retriever 생성 (SPRI AI Brief 컬렉션 사용)
-    retriever = qs.retriever(
+    retriever = faiss.retriever(
         collection_name="RAG_Example(RAG_strategies)", 
         fetch_k=3
     )

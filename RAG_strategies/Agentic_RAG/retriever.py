@@ -2,6 +2,9 @@ from langchain_ollama import OllamaEmbeddings
 from langchain_openai import ChatOpenAI
 from langchain_qdrant import QdrantVectorStore, FastEmbedSparse, RetrievalMode
 from qdrant_client import QdrantClient
+from langchain_community.vectorstores.faiss import FAISS
+from langchain.storage import LocalFileStore
+from langchain.embeddings import CacheBackedEmbeddings
 
 from langchain.retrievers import ContextualCompressionRetriever
 from langchain_community.document_compressors import JinaRerank
@@ -80,6 +83,87 @@ class QdrantRetrieverFactory:
             ContextualCompressionRetriever: 재순위화가 적용된 압축 retriever
         """
         vs = self._get_vectorstore(collection_name)
+        base_retriever = vs.as_retriever(search_kwargs={"k": fetch_k})
+        compressor = JinaRerank(model="jina-reranker-v2-base-multilingual", top_n=top_n)
+        return ContextualCompressionRetriever(
+            base_compressor=compressor,
+            base_retriever=base_retriever,
+        )
+
+
+class FAISSRetrieverFactory:
+    """
+    FAISS VectorStore 기반 retriever 생성기.
+    - index_path는 각 메서드 호출 시 입력
+    """
+
+    def __init__(
+        self,
+        model: str = "bge-m3",
+        cache_dir: str = "./cache/",
+    ):
+        """
+        FAISSRetrieverFactory 초기화
+        
+        Args:
+            model: 임베딩을 위한 Ollama 모델명 (기본값: "bge-m3")
+            cache_dir: 임베딩 캐시 디렉토리 (기본값: "./cache/")
+        """
+        self.embeddings = OllamaEmbeddings(model=model)
+        
+        # 로컬 파일 저장소 설정
+        self.store = LocalFileStore(cache_dir)
+        
+        # 캐시를 지원하는 임베딩 생성
+        self.cached_embedder = CacheBackedEmbeddings.from_bytes_store(
+            underlying_embeddings=self.embeddings,
+            document_embedding_cache=self.store,
+            namespace=self.embeddings.model,
+        )
+
+    def _get_vectorstore(self, index_path: str) -> FAISS:
+        """
+        내부적으로 FAISS VectorStore 로드
+        
+        Args:
+            index_path: FAISS 인덱스 파일 경로
+            
+        Returns:
+            FAISS: 로드된 FAISS 벡터스토어
+        """
+        return FAISS.load_local(
+            index_path, 
+            self.cached_embedder, 
+            allow_dangerous_deserialization=True
+        )
+
+    def retriever(self, index_path: str, fetch_k: int = 5):
+        """
+        일반 retriever 생성
+        
+        Args:
+            index_path: FAISS 인덱스 파일 경로
+            fetch_k: 검색할 문서 개수 (기본값: 5)
+            
+        Returns:
+            BaseRetriever: 기본 검색 retriever
+        """
+        vs = self._get_vectorstore(index_path)
+        return vs.as_retriever(search_kwargs={"k": fetch_k})
+
+    def compression_retriever(self, index_path: str, fetch_k: int = 20, top_n: int = 5):
+        """
+        JinaRerank 기반 압축 retriever 생성
+        
+        Args:
+            index_path: FAISS 인덱스 파일 경로
+            fetch_k: 초기 검색에서 가져올 문서 개수 (기본값: 20)
+            top_n: 재순위화 후 최종 반환할 문서 개수 (기본값: 5)
+            
+        Returns:
+            ContextualCompressionRetriever: 재순위화가 적용된 압축 retriever
+        """
+        vs = self._get_vectorstore(index_path)
         base_retriever = vs.as_retriever(search_kwargs={"k": fetch_k})
         compressor = JinaRerank(model="jina-reranker-v2-base-multilingual", top_n=top_n)
         return ContextualCompressionRetriever(
