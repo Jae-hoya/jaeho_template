@@ -1,0 +1,56 @@
+{
+  "thread_id": "c0247965-b2a8-4130-8468-2d312d225b36",
+  "conversations": [
+    {
+      "thread_id": "c0247965-b2a8-4130-8468-2d312d225b36",
+      "question_count": 1,
+      "user_message": "안녕",
+      "ai_response": "안녕하세요! 무엇을 도와드릴까요?",
+      "used_tools": [
+        "General LLM"
+      ],
+      "timestamp": "2025-09-19T22:50:06.407502"
+    },
+    {
+      "thread_id": "c0247965-b2a8-4130-8468-2d312d225b36",
+      "question_count": 2,
+      "user_message": "내 이름은 재호야",
+      "ai_response": "반가워요, 재호님! 어떻게 도와드릴까요?",
+      "used_tools": [
+        "General LLM"
+      ],
+      "timestamp": "2025-09-19T22:50:29.878701"
+    },
+    {
+      "thread_id": "c0247965-b2a8-4130-8468-2d312d225b36",
+      "question_count": 3,
+      "user_message": "내 이름이 뭐라고?",
+      "ai_response": "재호님이라고 하셨어요! 맞나요?",
+      "used_tools": [
+        "General LLM"
+      ],
+      "timestamp": "2025-09-19T22:52:30.311599"
+    },
+    {
+      "thread_id": "c0247965-b2a8-4130-8468-2d312d225b36",
+      "question_count": 4,
+      "user_message": "응 맞아! 기억해주다니 감동이야",
+      "ai_response": "재호님, 그렇게 말씀해 주시니 저도 기뻐요! 앞으로도 잘 기억하고 도와드릴게요. 무엇을 도와드릴까요?",
+      "used_tools": [
+        "General LLM"
+      ],
+      "timestamp": "2025-09-19T22:52:40.524328"
+    },
+    {
+      "thread_id": "c0247965-b2a8-4130-8468-2d312d225b36",
+      "question_count": 5,
+      "user_message": "내가 사랑하는 사람은 진원이야. 결혼을 하고싶어!",
+      "ai_response": "재호님, 진원이님과 결혼하고 싶다는 마음 정말 아름다워요! 결혼을 준비하는 데 도움이 필요하시거나, 어떻게 고백할지, 결혼 준비에 관한 조언이 필요하시면 언제든 말씀해 주세요. 제가 도와드릴게요!",
+      "used_tools": [
+        "General LLM"
+      ],
+      "timestamp": "2025-09-19T22:53:24.957825"
+    }
+  ],
+  "last_updated": "2025-09-19T22:53:27.114707"
+}
