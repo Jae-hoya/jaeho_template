@@ -1,0 +1,25 @@
+# LangGraph PDF RAG 시스템 요구사항
+
+# 핵심 LangChain 패키지
+langchain>=0.3.0
+langchain-core>=0.3.0
+langchain-community>=0.3.0
+langchain-openai>=0.3.0
+langgraph>=0.3.0
+langgraph-checkpoint>=2.1.0
+langgraph-prebuilt>=0.1.0
+langsmith>=0.3.0
+
+# PDF 처리
+PyMuPDF>=1.23.0
+
+# 벡터 스토어 및 검색
+faiss-cpu>=1.7.4
+rank-bm25>=0.2.2
+
+# 웹 검색
+tavily-python>=0.3.0
+
+# 기타 유틸리티
+python-dotenv>=1.0.0
+typing-extensions>=4.5.0
