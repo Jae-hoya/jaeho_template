@@ -1,4 +1,18 @@
-[09/28/25 16:52:53] INFO     Processing request of type           server.py:623
+[10/11/25 02:27:12] INFO     Processing request of type           server.py:623
                              ListToolsRequest                                  
-[09/28/25 16:52:55] INFO     Processing request of type           server.py:623
+[10/11/25 02:27:14] INFO     Processing request of type           server.py:623
                              CallToolRequest                                   
+                    INFO     HTTP Request: GET                  _client.py:1025
+                             http://localhost:6333 "HTTP/1.1                   
+                             200 OK"                                           
+[10/11/25 02:27:16] INFO     HTTP Request: GET                  _client.py:1025
+                             http://localhost:6333/collections/                
+                             RAG_Example(RAG_strategies)                       
+                             "HTTP/1.1 200 OK"                                 
+                    INFO     HTTP Request: POST                 _client.py:1025
+                             http://127.0.0.1:11434/api/embed                  
+                             "HTTP/1.1 200 OK"                                 
+                    INFO     HTTP Request: GET                  _client.py:1025
+                             http://localhost:6333/collections/                
+                             RAG_Example(RAG_strategies)                       
+                             "HTTP/1.1 200 OK"                                 

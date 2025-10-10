@@ -1,0 +1,6 @@
+{
+  "mcp-rag": {
+    "url": "http://localhost:8101/sse",
+    "transport": "sse"
+  }
+}
