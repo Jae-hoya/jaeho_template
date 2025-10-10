@@ -65,7 +65,7 @@ async def astream_graph(
                     # 노드가 변경된 경우에만 구분선 출력
                     if curr_node != prev_node:
                         print("\n" + "=" * 50)
-                        print(f"🔄 Node: \033[1;36m{curr_node}\033[0m 🔄")
+                        print(f"[Node: {curr_node}]")
                         print("- " * 25)
 
                     # Claude/Anthropic 모델의 토큰 청크 처리 - 항상 텍스트만 추출

@@ -1,6 +1,9 @@
 {
-  "mcp-rag": {
-    "url": "http://localhost:8101/sse",
-    "transport": "sse"
+  "rag_retriever": {
+    "command": "C:\\Users\\skyop\\jaeho_template\\dotenv\\Scripts\\python.exe",
+    "args": [
+      "./mcp_rag_stdio.py"
+    ],
+    "transport": "stdio"
   }
 }

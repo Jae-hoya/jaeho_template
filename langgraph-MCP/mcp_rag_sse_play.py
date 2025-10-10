@@ -1,5 +1,5 @@
-from mcp import ClientSession, StdioServerParameters
-from mcp.client.stdio import stdio_client
+from mcp import ClientSession
+from mcp.client.sse import sse_client
 from langgraph.prebuilt import create_react_agent
 from langchain_mcp_adapters.tools import load_mcp_tools
 from langchain_openai import ChatOpenAI
@@ -7,34 +7,21 @@ from utils import astream_graph
 from dotenv import load_dotenv
 import sys
 import os
+import asyncio
 
 load_dotenv(override=True)
 
 # 올바른 모델 이름 사용 (gpt-4o-mini 또는 gpt-4-turbo)
 model = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
-# 현재 디렉토리 기준으로 절대 경로 생성
-current_dir = os.path.dirname(os.path.abspath(__file__))
-mcp_server_path = os.path.join(current_dir, "mcp_rag_stdio.py")
-
-# dotenv 가상환경의 Python 경로 설정 (Windows)
-project_root = os.path.dirname(current_dir)  # langgraph-MCP의 상위 폴더 (jaeho_template)
-dotenv_python = os.path.join(project_root, "dotenv", "Scripts", "python.exe")
-
-server_params = StdioServerParameters(
-    command=dotenv_python,  # dotenv 가상환경의 Python 사용
-    args=["-u", mcp_server_path],  # -u: unbuffered 모드로 버퍼링 방지
-    env={**os.environ, "PYTHONUNBUFFERED": "1"}  # 환경변수로도 설정
-)
-
-# StdIO 클라이언트를 사용하여 서버와 통신
+# SSE 클라이언트를 사용하여 서버와 통신
 async def main():
-    print("[INFO] MCP 서버 시작 중...")
-    print(f"[INFO] Python 경로: {dotenv_python}")
-    print(f"[INFO] MCP 서버 경로: {mcp_server_path}")
+    print("[INFO] MCP 서버 연결 중...")
+    print("[INFO] 서버 URL: http://localhost:8101/sse")
     
     try:
-        async with stdio_client(server_params) as (read, write):
+        # SSE 서버에 연결
+        async with sse_client("http://localhost:8101/sse") as (read, write):
             print("[SUCCESS] MCP 서버 연결 성공!")
             
             # 클라이언트 세션 생성
@@ -47,8 +34,9 @@ async def main():
                 # MCP 도구 로드
                 print("[INFO] MCP 도구 로드 중...")
                 tools = await load_mcp_tools(session)
-                print(f"[SUCCESS] 로드된 도구: {tools}")
-                print(f"[INFO] 도구 개수: {len(tools)}")
+                print(f"[SUCCESS] 로드된 도구 개수: {len(tools)}")
+                for tool in tools:
+                    print(f"  - {tool.name}: {tool.description[:50]}...")
 
                 # 에이전트 생성
                 print("[INFO] 에이전트 생성 중...")
@@ -71,11 +59,10 @@ async def main():
         traceback.print_exc()
 
 # 비동기 함수 실행
-import asyncio
-
 if __name__ == "__main__":
     # Windows 환경에서 이벤트 루프 정책 설정
     if sys.platform == "win32":
         asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
     
     asyncio.run(main())
+
