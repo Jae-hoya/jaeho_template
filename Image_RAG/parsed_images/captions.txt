@@ -1,0 +1,148 @@
+Picture #0
+Caption: 
+Annotations: []
+
+Picture #1
+Caption: 
+Annotations: [DescriptionAnnotation(kind='description', text='The image is a logo for the Korea Institute of Public Administration (KIPA), featuring both English and Korean text. The English text reads "KIPA KOREA INSTITUTE OF PUBLIC ADMINISTRATION," while the Korean text in yellow and black reads "정부혁신 트렌드," which translates to "Government Innovation Trend," with decorative elliptical lines and star-like symbols around the black text.', provenance='not-implemented')]
+
+Picture #2
+Caption: 
+Annotations: []
+
+Picture #3
+Caption: 
+Annotations: [DescriptionAnnotation(kind='description', text='The image depicts a person in a lab coat interacting with a digital interface labeled "AI" at the center, surrounded by icons representing various AI-related functions like data, robotics, and connectivity. Another individual is shown working at a desk with a computer displaying a robot, illustrating the integration of artificial intelligence into technology and research environments.', provenance='not-implemented')]
+
+Picture #4
+Caption: 
+Annotations: [DescriptionAnnotation(kind='description', text='This image is a Korean-language cover page for a report titled "국가별 공공부문 AI 도입 및 활용 전략" which translates to "AI Adoption and Utilization Strategies in the Public Sector by Country," with a focus on case studies from the UK, Australia, and the US. The visual includes national flags, AI and computer-related icons, and the names of the authors, 우하린 and 송방현, at the bottom.', provenance='not-implemented')]
+
+Picture #5
+Caption: 
+Annotations: []
+
+Picture #6
+Caption: 
+Annotations: [DescriptionAnnotation(kind='description', text='The image depicts a large, orange number "1" with a white outline against a yellow background. Behind the main number, there is a shadow of the number "1" in a darker yellow shade, giving a three-dimensional effect.', provenance='not-implemented')]
+
+Picture #7
+Caption: 
+Annotations: []
+
+Picture #8
+Caption: 
+Annotations: [DescriptionAnnotation(kind='description', text='The image shows a large, orange number 2 with a thin white outline against a yellow background. There is also a darker yellow shadow of the number 2 slightly offset to the bottom right.', provenance='not-implemented')]
+
+Picture #9
+Caption: I 그림 1 I  디지털플랫폼정부 추진계획(2023~2027) 일정
+Annotations: [DescriptionAnnotation(kind='description', text='This image shows a two-page project schedule written in Korean, detailing major implementation tasks and timelines from 2023 to 2027 across various categories such as digital service systems, AI/data-driven operations, data-based governance, and digital infrastructure. Each section breaks down specific projects and their planned phases (e.g., ISP, 구축, 운영) over the years, using colored bars to visually represent the project timelines.', provenance='not-implemented')]
+
+Picture #10
+Caption: I 그림 2 I  초거대 AI 도입ㆍ활용 가이드라인 구성
+Annotations: [DescriptionAnnotation(kind='description', text='This image displays a three-part table of contents for a guide about next-generation AI, divided into "1. Overview," "2. Next-Generation AI Technology and Cases," and "3. Next-Generation AI Adoption Procedures," with each section listing detailed subtopics. The text is written in Korean, and each section is color-coded: teal for section 1, orange for section 2, and green for section 3.', provenance='not-implemented')]
+
+Picture #11
+Caption: 
+Annotations: []
+
+Picture #12
+Caption: 
+Annotations: []
+
+Picture #13
+Caption: 
+Annotations: []
+
+Picture #14
+Caption: 
+Annotations: []
+
+Picture #15
+Caption: 
+Annotations: [DescriptionAnnotation(kind='description', text='The image shows a large, bold orange number "3" with a white outline, centered on a yellow background. There is a brownish shadow cast to the lower right of the number, giving it a three-dimensional effect.', provenance='not-implemented')]
+
+Picture #16
+Caption: 
+Annotations: [DescriptionAnnotation(kind='description', text='This image presents a timeline detailing the key milestones and policy initiatives related to the adoption and utilization of AI in the public sector by the government from 2018 to 2024. The timeline highlights significant events, such as the announcement of AI strategies, the establishment of dedicated AI teams, reviews of AI opportunities, and the release of guidelines and budgets to promote AI integration in governmental operations.', provenance='not-implemented')]
+
+Picture #17
+Caption: 
+Annotations: []
+
+Picture #18
+Caption: 
+Annotations: []
+
+Picture #19
+Caption: 
+Annotations: []
+
+Picture #20
+Caption: 출처:   https://ai.gov.uk/blogs/rapid-ai-prototyping-for-policy-innovation-transforming-government-decision-making/ (2024년 10월 28일 접근)
+Annotations: [DescriptionAnnotation(kind='description', text='The image showcases "Street.ai UK," an AI-enabled mobile app designed for reporting issues in cities, displaying its interface on both a laptop and multiple smartphones. The workflow illustrated shows users opening the camera to detect and report urban problems, such as pollution and street damage, directly on a map-based interface.', provenance='not-implemented')]
+
+Picture #21
+Caption: 
+Annotations: []
+
+Picture #22
+Caption: 
+Annotations: []
+
+Picture #23
+Caption: 
+Annotations: []
+
+Picture #24
+Caption: 
+Annotations: [DescriptionAnnotation(kind='description', text='The image shows a large, orange number 4 with a white outline centered on a yellow background. There is also a darker yellow shadow effect to the right and below the number.', provenance='not-implemented')]
+
+Picture #25
+Caption: I 그림 8 I  호주의 데이터와 디지털 전환 전략과 관련 전략과의 연계
+Annotations: [DescriptionAnnotation(kind='description', text='This image is a flowchart outlining the innovation agenda for Australian public service, featuring three core strategies: APS Workforce Strategy 2025, Data and Digital Government Strategy, and the 2023–2030 Australian Cyber Security Strategy. Each strategy includes key components or frameworks related to digital workforce, data management, digital services, and cybersecurity policies.', provenance='not-implemented')]
+
+Picture #26
+Caption: 
+Annotations: []
+
+Picture #27
+Caption: 
+Annotations: []
+
+Picture #28
+Caption: 
+Annotations: []
+
+Picture #29
+Caption: 
+Annotations: [DescriptionAnnotation(kind='description', text='The image shows a large, bold, orange number 5 with a white outline set against a yellow background. The number casts a darker yellow shadow to its lower right side, creating a three-dimensional effect.', provenance='not-implemented')]
+
+Picture #30
+Caption: I 그림 9 I  2022년 미국 정부 기관별 AI 사용 사례
+Annotations: [DescriptionAnnotation(kind='description', text='This bar chart displays the number of artificial intelligence (AI) use cases across various U.S. federal agencies, distinguishing between the total number of AI use cases (dark blue) and the number of public AI use cases (light blue). The National Aeronautics and Space Administration (NASA) leads with 390 total cases, followed by the Department of Commerce with 375, while several agencies such as the Department of Housing and Urban Development, the Nuclear Regulatory Commission, and the Small Business Administration report zero use cases.', provenance='not-implemented')]
+
+Picture #31
+Caption: 출처: U.S. Government Accountability Office. (2023: 10).
+Annotations: [DescriptionAnnotation(kind='description', text='This image is a timeline detailing significant events, guidelines, and legislations related to AI regulation and policy development in the United States from 2019 to 2023, annotated in Korean. It highlights key government actions, executive orders, and organizational publications related to AI oversight and governance, including the introduction of specific AI laws, guidelines, and frameworks.', provenance='not-implemented')]
+
+Picture #32
+Caption: 
+Annotations: []
+
+Picture #33
+Caption: 
+Annotations: []
+
+Picture #34
+Caption: 
+Annotations: [DescriptionAnnotation(kind='description', text='The image shows a large, orange number 6 with a thin white outline, set against a yellow background. The number also has a darker orange shadow, giving it a three-dimensional effect.', provenance='not-implemented')]
+
+Picture #35
+Caption: 
+Annotations: []
+
+Picture #36
+Caption: 
+Annotations: []
+

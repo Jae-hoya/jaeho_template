@@ -1,0 +1,148 @@
+Picture #/pictures/0
+Caption: 
+Annotations: []
+
+Picture #/pictures/1
+Caption: 
+Annotations: [DescriptionAnnotation(kind='description', text='This image features the logo for the Korea Institute of Public Administration (KIPA), with its name written in both English and Korean. The Korean text "정부혁신 트렌드" (Government Innovation Trends) is displayed prominently in yellow and black, with a stylized elliptical orbit and star accents surrounding the black text.', provenance='not-implemented')]
+
+Picture #/pictures/2
+Caption: 
+Annotations: []
+
+Picture #/pictures/3
+Caption: 
+Annotations: [DescriptionAnnotation(kind='description', text='The image depicts a person in a lab coat interacting with a digital interface labeled "AI," surrounded by various artificial intelligence-related icons, such as neural networks, cloud computing, and robotics. In the foreground, another individual is seated at a desk, working on a computer with a robot displayed on the screen, all set against a yellow background.', provenance='not-implemented')]
+
+Picture #/pictures/4
+Caption: 
+Annotations: [DescriptionAnnotation(kind='description', text='This image is a cover page for a report titled "국가별 공공부문 AI 도입 및 활용 전략" (Strategies for AI Adoption and Utilization in the Public Sector by Country), specifically focusing on cases from the UK, Australia, and the US. The illustration features a large yellow hand pointing to a central node connected to icons representing AI technology and the flags of the UK, US, and Australia, along with the names of the authors 우하린 and 송방현.', provenance='not-implemented')]
+
+Picture #/pictures/5
+Caption: 
+Annotations: []
+
+Picture #/pictures/6
+Caption: 
+Annotations: [DescriptionAnnotation(kind='description', text='The image shows a large, orange number "1" with a white outline on a yellow background. There is a faint shadow of the number "1" in a darker yellow shade behind it, slightly to the right.', provenance='not-implemented')]
+
+Picture #/pictures/7
+Caption: 
+Annotations: []
+
+Picture #/pictures/8
+Caption: 
+Annotations: [DescriptionAnnotation(kind='description', text='The image shows a large, orange number "2" with a thin white outline, set against a yellow background. There is a shadow of the number "2" cast to the lower right, giving the image a slight three-dimensional effect.', provenance='not-implemented')]
+
+Picture #/pictures/9
+Caption: I 그림 1 I  디지털플랫폼정부 추진계획(2023~2027) 일정
+Annotations: [DescriptionAnnotation(kind='description', text='This image shows a detailed project timeline in Korean, listing major tasks and their corresponding schedules from 2023 to 2027 in categories such as administrative service integration, AI and data-driven scientific management, data-based administration, public-private cooperation, and digital government infrastructure. Each objective has associated milestones, planning phases, and implementation periods displayed through a Gantt chart layout across two pages.', provenance='not-implemented')]
+
+Picture #/pictures/10
+Caption: I 그림 2 I  초거대 AI 도입ㆍ활용 가이드라인 구성
+Annotations: [DescriptionAnnotation(kind='description', text='This image is a table of contents divided into three sections: 1) Overview, 2) Examples of Advanced AI Technologies, and 3) Advanced AI Adoption Procedures. Each section includes subtopics numbered for further detail, such as the era of advanced AI, digital platform promotion, AI language models, cloud services, and adoption checklists.', provenance='not-implemented')]
+
+Picture #/pictures/11
+Caption: 
+Annotations: []
+
+Picture #/pictures/12
+Caption: 
+Annotations: []
+
+Picture #/pictures/13
+Caption: 
+Annotations: []
+
+Picture #/pictures/14
+Caption: 
+Annotations: []
+
+Picture #/pictures/15
+Caption: 
+Annotations: [DescriptionAnnotation(kind='description', text='The image features a large, bold orange number "3" with a white outline centered on a yellow background. There is also a shadow effect to the right and below the number, giving it a sense of depth.', provenance='not-implemented')]
+
+Picture #/pictures/16
+Caption: 
+Annotations: [DescriptionAnnotation(kind='description', text='This image presents a timeline highlighting the major government policy milestones related to the adoption and utilization of AI in the public sector from 2018 to 2024 in South Korea and the UK. Each milestone is described in chronological order, detailing significant developments such as AI strategy releases, the establishment of AI utilization teams, and government-backed AI innovation initiatives.', provenance='not-implemented')]
+
+Picture #/pictures/17
+Caption: 
+Annotations: []
+
+Picture #/pictures/18
+Caption: 
+Annotations: []
+
+Picture #/pictures/19
+Caption: 
+Annotations: []
+
+Picture #/pictures/20
+Caption: 출처:   https://ai.gov.uk/blogs/rapid-ai-prototyping-for-policy-innovation-transforming-government-decision-making/ (2024년 10월 28일 접근)
+Annotations: [DescriptionAnnotation(kind='description', text='The image shows "Street.ai UK," an AI-enabled mobile app designed for reporting issues in cities, with a web interface displayed on a laptop and the app shown on mobile devices. The workflow illustrated includes opening the camera on the app, which then detects and identifies city issues such as pollution and violence using AI.', provenance='not-implemented')]
+
+Picture #/pictures/21
+Caption: 
+Annotations: []
+
+Picture #/pictures/22
+Caption: 
+Annotations: []
+
+Picture #/pictures/23
+Caption: 
+Annotations: []
+
+Picture #/pictures/24
+Caption: 
+Annotations: [DescriptionAnnotation(kind='description', text='The image shows a large, bold orange number 4 with a white outline on a yellow background. There is also a shadow effect that extends to the lower right of the number, adding depth to the image.', provenance='not-implemented')]
+
+Picture #/pictures/25
+Caption: I 그림 8 I  호주의 데이터와 디지털 전환 전략과 관련 전략과의 연계
+Annotations: [DescriptionAnnotation(kind='description', text='This image is a flowchart outlining the innovation agenda for Australian public service, linking three main strategies: the "APS 인력 전략 2025" (APS Workforce Strategy 2025), the "데이터 및 디지털 정부 전략" (Data and Digital Government Strategy), and the "2023-2030 호주 사이버 보안 전략" (2023-2030 Australian Cyber Security Strategy). Each strategy is supported by a list of related plans or frameworks, showing their interconnectedness within the context of public service innovation.', provenance='not-implemented')]
+
+Picture #/pictures/26
+Caption: 
+Annotations: []
+
+Picture #/pictures/27
+Caption: 
+Annotations: []
+
+Picture #/pictures/28
+Caption: 
+Annotations: []
+
+Picture #/pictures/29
+Caption: 
+Annotations: [DescriptionAnnotation(kind='description', text='The image shows a large, orange number 5 with a white outline centered on a yellow background. The number has a drop shadow effect that gives it a three-dimensional appearance.', provenance='not-implemented')]
+
+Picture #/pictures/30
+Caption: I 그림 9 I  2022년 미국 정부 기관별 AI 사용 사례
+Annotations: [DescriptionAnnotation(kind='description', text='This bar chart displays the total number of artificial intelligence (AI) use cases and the number of public AI use cases for various U.S. federal agencies, with the National Aeronautics and Space Administration (NASA) leading at 390 total use cases. Each agency is represented with two bars: a dark blue bar for total AI use cases and a light blue bar for public AI use cases, revealing that the number of public AI use cases is consistently lower than the total for each agency.', provenance='not-implemented')]
+
+Picture #/pictures/31
+Caption: 출처: U.S. Government Accountability Office. (2023: 10).
+Annotations: [DescriptionAnnotation(kind='description', text='This image is a timeline that outlines major events, directives, and laws related to AI regulation and policy in the United States from 2019 to 2023, including actions by government agencies such as OMB, NIST, GAO, and GSA. Key milestones include the issuance of executive orders, the passage of AI laws, the release of various AI guidelines, and efforts to promote safe and reliable AI development and use.', provenance='not-implemented')]
+
+Picture #/pictures/32
+Caption: 
+Annotations: []
+
+Picture #/pictures/33
+Caption: 
+Annotations: []
+
+Picture #/pictures/34
+Caption: 
+Annotations: [DescriptionAnnotation(kind='description', text='The image shows a large, orange number 6 with a thin white outline against a yellow background. The number casts a shadow to the lower right, adding a sense of depth to the image.', provenance='not-implemented')]
+
+Picture #/pictures/35
+Caption: 
+Annotations: []
+
+Picture #/pictures/36
+Caption: 
+Annotations: []
+
