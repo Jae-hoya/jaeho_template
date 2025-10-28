@@ -9,7 +9,7 @@ mcp = FastMCP(
     "Retriever",
     instructions="A Retriever that can retrieve information from the database. Database is for SPRI AI Brief",
     host="0.0.0.0",
-    port=8101,
+    port=8102,
 )
 
 @mcp.tool()
@@ -40,3 +40,9 @@ async def retrieve(query: str) -> str:
 if __name__ == "__main__":
     # Run the MCP server with stdio transport for integration with MCP clients
     mcp.run(transport="sse")
+
+# 이 mcp tool을 확장하고 싶어.
+# 에를들면,
+# 1. expansion query를 만든다
+# 2. MCP가 알아서 모델의 temperature를 수정하면서, 최적의 temperature에서 검색한다..
+# 3. retriever 방식을 수정한다

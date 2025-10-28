@@ -355,7 +355,7 @@ mcp = FastMCP(
     "Saju-Analyzer",
     instructions="A Saju (사주) analyzer that can calculate and analyze Korean traditional fortune telling based on birth date and time.",
     host="0.0.0.0",
-    port=8102,
+    port=8103,
 )
 
 # 사주 계산기 인스턴스
