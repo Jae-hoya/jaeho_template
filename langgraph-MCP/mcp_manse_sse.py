@@ -355,7 +355,7 @@ mcp = FastMCP(
     "Saju-Analyzer",
     instructions="A Saju (사주) analyzer that can calculate and analyze Korean traditional fortune telling based on birth date and time.",
     host="0.0.0.0",
-    port=8103,
+    port=8104,
 )
 
 # 사주 계산기 인스턴스
@@ -445,5 +445,5 @@ async def parse_saju_input(text: str) -> str:
         return f"자연어 파싱 중 오류가 발생했습니다: {str(e)}"
 
 if __name__ == "__main__":
-    # MCP 서버를 SSE 방식으로 실행
+    # MCP 서버를 http 방식으로 실행
     mcp.run(transport="sse")

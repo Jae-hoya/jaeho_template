@@ -1,11 +1,7 @@
-[10/11/25 02:27:12] INFO     Processing request of type           server.py:623
-                             ListToolsRequest                                  
-[10/11/25 02:27:14] INFO     Processing request of type           server.py:623
-                             CallToolRequest                                   
-                    INFO     HTTP Request: GET                  _client.py:1025
+[11/05/25 14:33:29] INFO     HTTP Request: GET                  _client.py:1025
                              http://localhost:6333 "HTTP/1.1                   
                              200 OK"                                           
-[10/11/25 02:27:16] INFO     HTTP Request: GET                  _client.py:1025
+[11/05/25 14:33:31] INFO     HTTP Request: GET                  _client.py:1025
                              http://localhost:6333/collections/                
                              RAG_Example(RAG_strategies)                       
                              "HTTP/1.1 200 OK"                                 
@@ -16,3 +12,14 @@
                              http://localhost:6333/collections/                
                              RAG_Example(RAG_strategies)                       
                              "HTTP/1.1 200 OK"                                 
+                    INFO     Processing request of type           server.py:623
+                             ListToolsRequest                                  
+[11/05/25 14:33:32] INFO     Processing request of type           server.py:623
+                             CallToolRequest                                   
+                    INFO     HTTP Request: POST                 _client.py:1025
+                             http://127.0.0.1:11434/api/embed                  
+                             "HTTP/1.1 200 OK"                                 
+                    INFO     HTTP Request: POST                 _client.py:1025
+                             http://localhost:6333/collections/                
+                             RAG_Example(RAG_strategies)/points                
+                             /query "HTTP/1.1 200 OK"                          

@@ -3,10 +3,10 @@ from langchain_openai import ChatOpenAI
 from langchain_qdrant import QdrantVectorStore, FastEmbedSparse, RetrievalMode
 from qdrant_client import QdrantClient
 from langchain_community.vectorstores.faiss import FAISS
-from langchain.storage import LocalFileStore
-from langchain.embeddings import CacheBackedEmbeddings
+from langchain_classic.storage import LocalFileStore
+from langchain_classic.embeddings import CacheBackedEmbeddings
 
-from langchain.retrievers import ContextualCompressionRetriever
+from langchain_classic.retrievers import ContextualCompressionRetriever
 from langchain_community.document_compressors import JinaRerank
 
 
@@ -133,7 +133,7 @@ class FAISSRetrieverFactory:
         """
         return FAISS.load_local(
             index_path, 
-            self.cached_embedder, 
+            self.embeddings, 
             allow_dangerous_deserialization=True
         )
 
@@ -150,6 +150,22 @@ class FAISSRetrieverFactory:
         """
         vs = self._get_vectorstore(index_path)
         return vs.as_retriever(search_kwargs={"k": fetch_k})
+    
+    # def get_vectorstore_direct(self, index_path: str):
+    #     """
+    #     STDIO MCP용: CacheBackedEmbeddings 없이 직접 FAISS 로드
+        
+    #     Args:
+    #         index_path: FAISS 인덱스 파일 경로
+            
+    #     Returns:
+    #         FAISS: 로드된 FAISS 벡터스토어 (캐시 없음)
+    #     """
+    #     return FAISS.load_local(
+    #         index_path,
+    #         self.embeddings,  # cached_embedder 대신 직접 embeddings 사용
+    #         allow_dangerous_deserialization=True
+    #     )
 
     def compression_retriever(self, index_path: str, fetch_k: int = 20, top_n: int = 5):
         """

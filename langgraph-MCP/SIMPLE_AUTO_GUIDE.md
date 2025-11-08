@@ -254,3 +254,36 @@ result = await retrieve_auto_optimized(query="...")  # 끝! 😎
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
