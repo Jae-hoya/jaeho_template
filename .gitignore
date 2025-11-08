@@ -21,3 +21,10 @@ __pycache__/
 .env
 .env.*
 !.env.example
+
+# 데이터
+*.faiss
+*.pkl
+*.bin
+*.sqlite3
+*.log
