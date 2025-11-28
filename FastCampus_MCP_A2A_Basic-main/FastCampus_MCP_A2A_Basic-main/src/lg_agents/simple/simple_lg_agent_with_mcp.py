@@ -53,7 +53,7 @@ class SimpleLangGraphWithMCPAgent(BaseGraphAgent):
             max_retry_attempts=max_retry_attempts,
             agent_name=agent_name,
             is_debug=is_debug,
-            auto_build=False, # NOTE: Key point!
+            auto_build=False, # NOTE: Key point! mcp client떄문에,  graph build를 나중에 하기 위해서
         )
 
         self.llm = model
@@ -94,7 +94,7 @@ class SimpleLangGraphWithMCPAgent(BaseGraphAgent):
             agent_name=agent_name,
             is_debug=is_debug,
         )
-        self.tools = await self.mcp_client.get_tools() # NOTE: Key point!
+        self.tools = await self.mcp_client.get_tools() # NOTE: Key point! mcp adapter에서 제공하는 연결된 mcp서버에서 모든 tools를 가져옴.
         self.build_graph() # NOTE: 여기서는 자식 그래프에서 호출함.
         return self
 

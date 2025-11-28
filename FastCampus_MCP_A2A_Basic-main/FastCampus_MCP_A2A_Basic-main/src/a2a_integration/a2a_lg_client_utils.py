@@ -2,8 +2,10 @@
 A2A Client Utilities - A2A 클라이언트 0.3.0 기준
 """
 
+
 from typing import Any
 from a2a.types import AgentCard, Message, Role, TransportProtocol, DataPart, Part
+# AgentCard, AgentCapabilities, AgentSkill 등 A2A 표준 타입 임포트
 from a2a.client import A2ACardResolver, ClientConfig, ClientFactory, A2AClientError
 from a2a.client.helpers import create_text_message_object
 from uuid import uuid4
