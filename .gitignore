@@ -5,6 +5,7 @@ env/
 ENV/
 *venv*/
 dotenv/
+windows_dotenv/
 venv_docling/
 
 # Jupyter/캐시
