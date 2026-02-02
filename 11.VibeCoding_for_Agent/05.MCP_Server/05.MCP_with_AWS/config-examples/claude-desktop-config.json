@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "seoul-opendata": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "C:/Users/skyop/jaeho_template/11.VibeCoding_for_Agent/05.MCP_Server/05.MCP_with_AWS",
+        "run",
+        "awslabs.seoul_opendata_mcp_server.server:main"
+      ],
+      "env": {
+        "SEOUL_CULTURE_API_KEY": "your-culture-events-api-key-here",
+        "SEOUL_WOMEN_API_KEY": "your-women-events-api-key-here"
+      }
+    }
+  }
+}
