@@ -1,0 +1,102 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+.env
+
+# UV
+.uv/
+uv.lock
+
+# PyCharm
+.idea/
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Cursor
+.cursor/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.hypothesis/
+
+# Type checking
+.mypy_cache/
+.pytype/
+.pyre/
+.pyright/
+
+# Ruff
+.ruff_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+*.log
+
+# API Keys
+*_api_key.txt
+secrets/
+credentials/
+
+# MCP Inspector
+mcp_inspector_output/
+
+# Backup files
+*.bak
+*.swp
+*~
+
+# Original project directories
+seoul_culture_events-mcp-server/
+women-events-seoul-mcp-server/
+"Short Domain-mcp-server"/
+
+# Template directories
+template_claudecode/
+template_opencode_codex/
+worktrees/
+
+# Temporary files
+tmp/
+temp/
