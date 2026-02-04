@@ -1,0 +1,24 @@
+[project]
+name = "playwright-mcp-client"
+version = "0.1.0"
+description = "Playwright MCP Client with Claude integration"
+requires-python = ">=3.10"
+dependencies = [
+    "anthropic>=0.39.0",
+    "mcp>=1.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

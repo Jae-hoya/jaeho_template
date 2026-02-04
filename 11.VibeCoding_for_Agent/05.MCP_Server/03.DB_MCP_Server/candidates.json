@@ -1,0 +1,662 @@
+[
+    {
+        "id": 1,
+        "name": "김민준",
+        "skills": [
+            "Python/Django",
+            "Java/Spring Boot",
+            "Go/Kubernetes",
+            "Node.js"
+        ],
+        "company": "카카오",
+        "category": "Developer",
+        "position": "Backend Developer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 2,
+        "name": "이서연",
+        "skills": [
+            "React",
+            "Vue.js",
+            "TypeScript",
+            "Next.js"
+        ],
+        "company": "Hoya Company",
+        "category": "Developer",
+        "position": "Frontend Developer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 3,
+        "name": "박지호",
+        "skills": [
+            "Swift/iOS",
+            "Kotlin/Android",
+            "Flutter",
+            "Docker"
+        ],
+        "company": "Hoya Company",
+        "category": "Developer",
+        "position": "Mobile Developer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 4,
+        "name": "최유진",
+        "skills": [
+            "Machine Learning",
+            "Blockchain",
+            "Game Development"
+        ],
+        "company": "Hoya Company",
+        "category": "Developer",
+        "position": "Machine Learning Engineer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 5,
+        "name": "정다은",
+        "skills": [
+            "Figma",
+            "Sketch",
+            "Adobe XD",
+            "Prototyping"
+        ],
+        "company": "Hoya Company",
+        "category": "Designer",
+        "position": "UI/UX Designer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 6,
+        "name": "한지민",
+        "skills": [
+            "Branding",
+            "Illustration",
+            "Motion Graphics"
+        ],
+        "company": "Hoya Company",
+        "category": "Designer",
+        "position": "Visual Designer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 7,
+        "name": "오현우",
+        "skills": [
+            "Design System",
+            "Component Library",
+            "Tokens"
+        ],
+        "company": "Hoya Company",
+        "category": "Designer",
+        "position": "Design System Designer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 8,
+        "name": "강수빈",
+        "skills": [
+            "3D Design",
+            "Game UI",
+            "Data Visualization"
+        ],
+        "company": "Hoya Company",
+        "category": "PM",
+        "position": "Product Manager",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 9,
+        "name": "조하늘",
+        "skills": [
+            "Agile",
+            "Scrum",
+            "OKR",
+            "Lean Startup"
+        ],
+        "company": "Hoya Company",
+        "category": "PM",
+        "position": "Product Manager",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 10,
+        "name": "윤지훈",
+        "skills": [
+            "SQL",
+            "Data Analysis",
+            "A/B Testing"
+        ],
+        "company": "Hoya Company",
+        "category": "PM",
+        "position": "Product Analyst",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 11,
+        "name": "신예린",
+        "skills": [
+            "E-commerce",
+            "Fintech",
+            "Healthcare",
+            "Gaming"
+        ],
+        "company": "Hoya Company",
+        "category": "PM",
+        "position": "Domain PM",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 12,
+        "name": "장민재",
+        "skills": [
+            "SEO",
+            "Google Analytics",
+            "Performance Marketing"
+        ],
+        "company": "Hoya Company",
+        "category": "Marketer",
+        "position": "Performance Marketer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 13,
+        "name": "권서진",
+        "skills": [
+            "Copywriting",
+            "Content Strategy",
+            "Brand Storytelling"
+        ],
+        "company": "Hoya Company",
+        "category": "Marketer",
+        "position": "Content Marketer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 14,
+        "name": "임하준",
+        "skills": [
+            "Growth Hacking",
+            "Viral Marketing",
+            "Community Management"
+        ],
+        "company": "Hoya Company",
+        "category": "Marketer",
+        "position": "Growth Marketer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 15,
+        "name": "송지아",
+        "skills": [
+            "Social Media",
+            "Influencer",
+            "Email Marketing"
+        ],
+        "company": "Hoya Company",
+        "category": "Marketer",
+        "position": "Community Marketer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 16,
+        "name": "홍도윤",
+        "skills": [
+            "Python/Django",
+            "Java/Spring Boot",
+            "Go/Kubernetes",
+            "Node.js"
+        ],
+        "company": "Hoya Company",
+        "category": "Developer",
+        "position": "Backend Developer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 17,
+        "name": "배수아",
+        "skills": [
+            "Java/Spring Boot",
+            "Go/Kubernetes",
+            "Node.js",
+            "TypeScript",
+            "Go"
+        ],
+        "company": "네이버",
+        "category": "Developer",
+        "position": "Backend Developer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 18,
+        "name": "문채원",
+        "skills": [
+            "Python/Django",
+            "Node.js",
+            "Go/Kubernetes"
+        ],
+        "company": "Hoya Company",
+        "category": "Developer",
+        "position": "Backend Developer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 19,
+        "name": "백승우",
+        "skills": [
+            "React",
+            "Vue.js",
+            "TypeScript",
+            "Next.js"
+        ],
+        "company": "Hoya Company",
+        "category": "Developer",
+        "position": "Frontend Developer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 20,
+        "name": "서지후",
+        "skills": [
+            "React",
+            "TypeScript",
+            "Next.js"
+        ],
+        "company": "Hoya Company",
+        "category": "Developer",
+        "position": "Frontend Developer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 21,
+        "name": "남예은",
+        "skills": [
+            "Vue.js",
+            "TypeScript",
+            "React",
+            "Node.js",
+            "Python/Django",
+            "Java/Spring Boot"
+        ],
+        "company": "Hoya Company",
+        "category": "Developer",
+        "position": "Fullstack Developer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 22,
+        "name": "고태훈",
+        "skills": [
+            "Swift/iOS",
+            "Kotlin/Android",
+            "Flutter"
+        ],
+        "company": "Hoya Company",
+        "category": "Developer",
+        "position": "Mobile Developer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 23,
+        "name": "류예진",
+        "skills": [
+            "Swift/iOS",
+            "Flutter"
+        ],
+        "company": "Hoya Company",
+        "category": "Developer",
+        "position": "Mobile Developer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 24,
+        "name": "안지호",
+        "skills": [
+            "Kotlin/Android",
+            "Flutter"
+        ],
+        "company": "Hoya Company",
+        "category": "Developer",
+        "position": "Mobile Developer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 25,
+        "name": "노서윤",
+        "skills": [
+            "Machine Learning",
+            "Python/Django",
+            "Go/Kubernetes"
+        ],
+        "company": "네이버",
+        "category": "Developer",
+        "position": "Machine Learning Engineer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 26,
+        "name": "도현수",
+        "skills": [
+            "Blockchain",
+            "Node.js",
+            "Go/Kubernetes"
+        ],
+        "company": "Hoya Company",
+        "category": "Developer",
+        "position": "Blockchain Developer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 27,
+        "name": "차민지",
+        "skills": [
+            "Game Development",
+            "Node.js",
+            "Go/Kubernetes"
+        ],
+        "company": "Hoya Company",
+        "category": "Developer",
+        "position": "Game Developer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 28,
+        "name": "황지수",
+        "skills": [
+            "Figma",
+            "Sketch",
+            "Adobe XD",
+            "Prototyping"
+        ],
+        "company": "Hoya Company",
+        "category": "Designer",
+        "position": "UI/UX Designer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 29,
+        "name": "성준호",
+        "skills": [
+            "Figma",
+            "Prototyping",
+            "Adobe XD"
+        ],
+        "company": "Hoya Company",
+        "category": "Designer",
+        "position": "UI/UX Designer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 30,
+        "name": "구다빈",
+        "skills": [
+            "Branding",
+            "Illustration",
+            "Motion Graphics"
+        ],
+        "company": "Hoya Company",
+        "category": "Designer",
+        "position": "Visual Designer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 31,
+        "name": "전우진",
+        "skills": [
+            "Illustration",
+            "Motion Graphics",
+            "Branding"
+        ],
+        "company": "Hoya Company",
+        "category": "Designer",
+        "position": "Visual Designer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 32,
+        "name": "양다현",
+        "skills": [
+            "Design System",
+            "Component Library",
+            "Tokens"
+        ],
+        "company": "Hoya Company",
+        "category": "Designer",
+        "position": "Design System Designer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 33,
+        "name": "원시우",
+        "skills": [
+            "Design System",
+            "Tokens"
+        ],
+        "company": "Hoya Company",
+        "category": "Designer",
+        "position": "Design System Designer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 34,
+        "name": "하유나",
+        "skills": [
+            "3D Design",
+            "Game UI",
+            "Data Visualization"
+        ],
+        "company": "Hoya Company",
+        "category": "Designer",
+        "position": "3D Designer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 35,
+        "name": "민지원",
+        "skills": [
+            "3D Design",
+            "Data Visualization"
+        ],
+        "company": "Hoya Company",
+        "category": "Designer",
+        "position": "3D Designer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 36,
+        "name": "진서현",
+        "skills": [
+            "Agile",
+            "Scrum",
+            "OKR",
+            "Lean Startup"
+        ],
+        "company": "Hoya Company",
+        "category": "PM",
+        "position": "Product Manager",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 37,
+        "name": "손가은",
+        "skills": [
+            "Agile",
+            "OKR",
+            "Lean Startup"
+        ],
+        "company": "Hoya Company",
+        "category": "PM",
+        "position": "Product Manager",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 38,
+        "name": "유태민",
+        "skills": [
+            "SQL",
+            "Data Analysis",
+            "A/B Testing"
+        ],
+        "company": "Hoya Company",
+        "category": "PM",
+        "position": "Product Analyst",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 39,
+        "name": "서하람",
+        "skills": [
+            "Data Analysis",
+            "A/B Testing",
+            "SQL"
+        ],
+        "company": "Hoya Company",
+        "category": "PM",
+        "position": "Product Analyst",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 40,
+        "name": "고은채",
+        "skills": [
+            "E-commerce",
+            "Fintech",
+            "Healthcare",
+            "Gaming"
+        ],
+        "company": "Hoya Company",
+        "category": "PM",
+        "position": "Domain PM",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 41,
+        "name": "주태양",
+        "skills": [
+            "Fintech",
+            "E-commerce",
+            "Gaming"
+        ],
+        "company": "Hoya Company",
+        "category": "PM",
+        "position": "Domain PM",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 42,
+        "name": "나윤아",
+        "skills": [
+            "SEO",
+            "Google Analytics",
+            "Performance Marketing"
+        ],
+        "company": "Hoya Company",
+        "category": "Marketer",
+        "position": "Performance Marketer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 43,
+        "name": "탁지후",
+        "skills": [
+            "Performance Marketing",
+            "Google Analytics"
+        ],
+        "company": "Hoya Company",
+        "category": "Marketer",
+        "position": "Performance Marketer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 44,
+        "name": "길소연",
+        "skills": [
+            "Copywriting",
+            "Content Strategy",
+            "Brand Storytelling"
+        ],
+        "company": "Hoya Company",
+        "category": "Marketer",
+        "position": "Content Marketer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 45,
+        "name": "심준혁",
+        "skills": [
+            "Content Strategy",
+            "Brand Storytelling",
+            "Copywriting"
+        ],
+        "company": "Hoya Company",
+        "category": "Marketer",
+        "position": "Content Marketer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 46,
+        "name": "백지민",
+        "skills": [
+            "Growth Hacking",
+            "Viral Marketing",
+            "Community Management"
+        ],
+        "company": "Hoya Company",
+        "category": "Marketer",
+        "position": "Growth Marketer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 47,
+        "name": "엄유림",
+        "skills": [
+            "Viral Marketing",
+            "Community Management"
+        ],
+        "company": "Hoya Company",
+        "category": "Marketer",
+        "position": "Growth Marketer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 48,
+        "name": "곽재훈",
+        "skills": [
+            "Social Media",
+            "Influencer",
+            "Email Marketing"
+        ],
+        "company": "Hoya Company",
+        "category": "Marketer",
+        "position": "Community Marketer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 49,
+        "name": "변서아",
+        "skills": [
+            "Email Marketing",
+            "Social Media",
+            "Influencer"
+        ],
+        "company": "Hoya Company",
+        "category": "Marketer",
+        "position": "Community Marketer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    },
+    {
+        "id": 50,
+        "name": "오세진",
+        "skills": [
+            "Growth Hacking",
+            "Community Management",
+            "Viral Marketing"
+        ],
+        "company": "Hoya Company",
+        "category": "Marketer",
+        "position": "Growth Marketer",
+        "created_at": "2026-01-28T08:03:43.316228+00:00"
+    }
+]

@@ -1,0 +1,24 @@
+[project]
+name = "mcp-tutorial"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "faiss-cpu>=1.12.0",
+    "fastmcp>=2.12.4",
+    "grandalf>=0.8",
+    "jupyter>=1.1.1",
+    "langchain>=0.3.27",
+    "langchain-community>=0.3.30",
+    "langchain-mcp-adapters>=0.1.10",
+    "langchain-openai>=0.3.33",
+    "langchain-tavily>=0.2.11",
+    "langchain-teddynote>=0.5.1",
+    "langchain-text-splitters>=0.3.11",
+    "langgraph>=0.6.8",
+    "mcp>=1.15.0",
+    "notebook>=7.4.7",
+    "pymupdf>=1.26.4",
+    "python-dotenv>=1.1.1",
+]

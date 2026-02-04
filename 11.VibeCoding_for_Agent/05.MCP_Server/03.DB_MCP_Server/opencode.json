@@ -1,0 +1,47 @@
+{  
+    "$schema": "https://opencode.ai/config.json",
+      "permission": {
+    "external_directory": {
+      "/path/to/parent": "allow"
+    }
+  },
+  
+    "mcp": {
+        "context7": {
+            "type": "remote",
+            "url": "https://mcp.context7.com/mcp",
+            "enabled": true    
+        },
+        "docs-langchain": {
+            "type": "remote",
+            "url": "https://docs.langchain.com/mcp",
+            "enabled": true
+        },
+        "playwright": {
+            "type": "local",
+            "command": [
+                "npx",
+                "@playwright/mcp@latest"
+            ],
+            "enabled": true
+        },
+        "recursive-mcp-server": {
+            "type": "local",
+            "command": [
+                "python",
+                "C:\\Users\\skyop\\jaeho_template\\11.VibeCoding_for_Agent\\05.MCP_Server\\03.DB_MCP_Server\\server.py",
+                "postgresql://neondb_owner:npg_Rg60QLPdmVDG@ep-wild-recipe-afcbq7r1-pooler.c-2.us-west-2.aws.neon.tech/neondb?channel_binding=require&sslmode=require"
+            ],
+            "enabled": true
+        },
+        "Neon": {
+          "type": "remote",
+          "url": "https://mcp.neon.tech/mcp",
+          "headers": {
+            "Authorization": "Bearer napi_bvcbujs3n6sqex6j6uc3o3knh3z5r3mpxr2kg9gwujp61lvu423ycxxd4zu90q0f"
+          },
+          "enabled": true
+        }
+    }
+}
+

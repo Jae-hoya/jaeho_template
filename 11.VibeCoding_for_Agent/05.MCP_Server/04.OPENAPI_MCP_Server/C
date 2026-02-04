@@ -1,0 +1,150 @@
+# AGENTS.md
+
+## Overview
+- Purpose: FastMCP server that exposes Seoul cultural events OpenAPI via STDIO.
+- Language: Python 3.11+ with `src/` layout and `uv` for dependency management.
+- Entry points: `src/server.py` (thin), `src/seoul_culture_mcp/server.py` (real server).
+- Runtime is async and uses `httpx.AsyncClient`.
+
+## Repository layout
+- `src/seoul_culture_mcp/server.py`: FastMCP tools and request orchestration.
+- `src/seoul_culture_mcp/clients/seoul_api.py`: HTTP client and payload extraction.
+- `src/seoul_culture_mcp/utils/validation.py`: validation and filter helpers.
+- `src/seoul_culture_mcp/models.py`: Pydantic response models (extra fields allowed).
+- `src/seoul_culture_mcp/settings.py`: env loading and cached settings.
+- `run_server.py`: optional entrypoint that adds `src` to `sys.path`.
+- `tests/`: `unittest`-based test suite.
+
+## Commands
+- Install deps (uv, from repo root): `uv sync` (or `uv sync --frozen` to use `uv.lock`).
+- Run server (preferred, uses project script): `uv run seoul-culture-mcp`.
+- Run server (module): `uv run python -m seoul_culture_mcp.server`.
+- Run server (direct file, from repo root): `python src/server.py`.
+- Run server (path-safe wrapper): `python run_server.py`.
+- Build package (sdist/wheel, if needed): `uv build` or `python -m build`.
+- Lint: no linter configured in this repo (do not assume ruff/black/mypy).
+- Format: no formatter configured; follow existing style.
+- Test all: `python -m unittest`.
+- Test module: `python -m unittest tests.test_validation`.
+- Single test: `python -m unittest tests.test_validation.ValidationTests.test_matches_title`.
+- Integration test (needs API key): `python -m unittest tests.test_integration`.
+
+## Test notes
+- Tests use `unittest` with explicit `TestCase` classes and `unittest.main()`.
+- Async API calls are executed with `asyncio.run(...)` inside tests.
+- `tests/test_integration.py` is skipped unless `SEOUL_API_KEY` is set.
+- Keep unit tests offline and deterministic; guard network calls behind skips.
+
+## Configuration and secrets
+- Required env: `SEOUL_API_KEY`.
+- Optional env: `SEOUL_API_BASE_URL`, `SEOUL_API_SERVICE`, `SEOUL_API_TYPE`, `SEOUL_API_TIMEOUT_SECONDS`.
+- Settings are loaded via `dotenv` in `src/seoul_culture_mcp/settings.py`.
+- Do not commit secrets; `.env` is gitignored.
+- Treat `.mcp_example.json` as a template only; never commit real keys.
+- Claude Desktop config needs absolute Windows paths and escaped backslashes.
+
+## Code style (Python)
+- Use `from __future__ import annotations` in package modules for modern typing.
+- Prefer explicit type hints for public functions and tool endpoints.
+- Keep types consistent with local module style (`typing.Dict/List` vs `dict/list`).
+- Use `| None` for optionals (Python 3.10+).
+- Keep functions small and focused; push reusable logic into helpers.
+- Prefer dataclasses for immutable config objects (see `Settings`).
+- Do not introduce implicit globals; cache only where intentional (see `get_settings`).
+
+## Imports
+- Order: standard library, third-party, local package.
+- Keep one blank line between import groups.
+- `from __future__ import annotations` must be first import.
+- Avoid unused imports; prefer explicit names over `*`.
+
+## Formatting
+- Follow PEP 8: 4-space indents, 1 blank line between top-level defs, 2 before classes.
+- Keep line length reasonable; wrap long calls using parentheses (current style).
+- Use trailing commas in multi-line argument lists.
+- Keep docstrings short and action-oriented (see `@mcp.tool` functions).
+
+## Naming conventions
+- Modules and functions: `snake_case`.
+- Classes: `PascalCase`.
+- Constants: `UPPER_SNAKE_CASE` (see settings defaults).
+- Tool names: user-facing verbs (`get_`, `search_`, `list_`) with clear intent.
+
+## Error handling
+- Use `ValueError` for invalid user inputs and parameter validation.
+- Wrap external/HTTP failures in `SeoulAPIError` within the client.
+- Convert client errors to `RuntimeError` in MCP tools to keep messages clean.
+- Preserve exception context with `raise ... from exc` where applicable.
+- Never log or return API keys.
+
+## Async and HTTP
+- Use `httpx.AsyncClient` with a per-request timeout from settings.
+- Keep HTTP calls in `clients/seoul_api.py`; do not inline in tools.
+- Propagate the request URL in response `meta` for debugging.
+
+## Data handling rules
+- Keep API payload keys and values as returned; do not coerce unless required.
+- `is_free` remains the source API string (Korean free/paid values).
+- `strtdate` and `end_date` remain epoch milliseconds.
+- `lat`/`lot` remain strings unless a tool explicitly requests numeric conversion.
+- Use `extract_description_data` to handle nested vs top-level payloads.
+- Use `normalize_limit`/`normalize_page_size` to cap paging.
+- Use `validate_date_str` and `validate_index_range` for input validation.
+
+## MCP tool conventions
+- Register tools with `@mcp.tool` and provide a concise docstring.
+- Return plain dicts containing data and `meta` context.
+- Use `_filter_meta` to avoid emitting empty filter fields.
+- For search tools, page until `limit` or data exhaustion.
+- Keep `mcp.run()` as the entry point for STDIO transport.
+
+## Testing style
+- New tests should follow `unittest` and live under `tests/`.
+- Name modules `test_*.py` and classes `*Tests`.
+- Avoid hard-coded network dependencies; prefer stubs or skip when needed.
+- Validate both happy path and edge cases (invalid inputs, empty data).
+
+## Packaging and entrypoints
+- Primary runtime entry: `seoul_culture_mcp.server:main` (see `pyproject.toml`).
+- `src/server.py` is a thin wrapper; keep it minimal.
+- Use `run_server.py` when `src` is not on `PYTHONPATH`.
+
+## Repo hygiene
+- Do not add generated files (`__pycache__`, `.venv`, `*.egg-info`) to git.
+- Keep `.env` local only; never copy secrets into docs or tests.
+- Keep docs in English unless the file is explicitly localized.
+
+## Cursor and Copilot rules
+- Cursor rules: none found in `.cursor/rules/` or `.cursorrules`.
+- Copilot instructions: none found in `.github/copilot-instructions.md`.
+
+## When in doubt
+- Search for similar patterns in `src/seoul_culture_mcp/server.py` before adding new tools.
+- Prefer minimal surface changes; extend existing helpers instead of duplicating logic.
+- Update this file when you add tooling (lint/format/build) or new conventions.
+
+## Typical workflow
+- `uv sync` to install dependencies.
+- Set `SEOUL_API_KEY` in the environment or `.env`.
+- Run unit tests before changes.
+- Make small, focused edits in `src/`.
+- Run targeted tests (`python -m unittest tests.test_validation`).
+- Run the server locally via `uv run seoul-culture-mcp`.
+
+## Quick command reference (copy/paste)
+```bash
+uv sync
+uv run seoul-culture-mcp
+uv run python -m seoul_culture_mcp.server
+python -m unittest
+python -m unittest tests.test_validation
+python -m unittest tests.test_validation.ValidationTests.test_matches_title
+```
+
+## Notes for Windows local setup
+- The recommended venv path in project docs is `C:\Users\skyop\jaeho_template\dotenv_windows`.
+- When configuring Claude Desktop, use absolute paths and double backslashes.
+- If you bypass `uv`, run with the venv Python (not system Python).
+
+## Change log
+- 2026-01-30: Created AGENTS.md for agentic workflows.

@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "seoul-culture-events": {
+      "command": "C:\\Users\\skyop\\jaeho_template\\dotenv_windows\\Scripts\\python.exe",
+      "args": [
+        "C:\\Users\\skyop\\jaeho_template\\11.VibeCoding_for_Agent\\05.MCP_Server\\04.OPENAPI_MCP_Server\\src\\server.py"
+      ],
+      "env": {
+        "SEOUL_API_KEY": "4e4666566e73656c38314a4e4d6345",
+        "SEOUL_API_BASE_URL": "http://openapi.seoul.go.kr:8088",
+        "SEOUL_API_SERVICE": "culturalEventInfo",
+        "SEOUL_API_TYPE": "json",
+        "SEOUL_API_TIMEOUT_SECONDS": "10"
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+[project]
+name = "random-mcp-server"
+version = "0.1.0"
+description = "MCP server that returns random numbers."
+requires-python = ">=3.11"
+dependencies = ["mcp"]
+
+[project.scripts]
+random-mcp-server = "random_mcp_server.server:main"

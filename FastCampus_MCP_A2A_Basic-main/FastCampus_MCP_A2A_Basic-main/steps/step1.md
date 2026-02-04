@@ -22,12 +22,12 @@ cp env.example .env  # env.example이 없으면 수동으로 .env를 생성해 �
 ```bash
 uv venv && uv sync
 ```
-
+# 바이브코딩 가능!
 ## 1) MCP 서버 제작
 
 - Tavily MCP 서버 제작을 위해 [fastmcp docs](/docs/fastmcp-llms_2.11.0.txt) 를 참고하세요.
   더 많은 fastmcp 내용이 필요하다면 [이 문서](/docs/fastmcp-llms-full_2.11.0.txt)도 괜찮습니다. (단 이 문서는 나눠서 읽도록 하세요)
-- Tavily Client 사용을 위해서는 [Tavily Docs](/docs/tavily_pyton_docs.md) 를 참고하세요.
+- Tavily Client 사용을 위해서는 [Tavily Docs](/docs/tavily_pyton_docs.md) 를 참고하세요. # 이것도 작성해달라고 바이브코딩 가능!
 
 ## 2) MCP 서버 기동
 

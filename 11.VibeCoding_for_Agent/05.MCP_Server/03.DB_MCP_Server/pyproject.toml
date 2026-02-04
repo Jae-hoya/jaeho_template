@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "recursive-mcp-server"
+version = "0.1.0"
+description = "MCP server for read-only PostgreSQL queries and safe candidate updates."
+requires-python = ">=3.11"
+dependencies = ["mcp", "asyncpg"]
+
+[project.scripts]
+recursive-mcp-server = "server:main"
+
+[tool.setuptools]
+py-modules = ["server"]

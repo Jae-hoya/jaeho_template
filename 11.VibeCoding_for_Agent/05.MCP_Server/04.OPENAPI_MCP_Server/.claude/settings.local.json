@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__query-docs",
+      "Bash(move \"C:\\\\Users\\\\skyop\\\\jaeho_template\\\\11.VibeCoding_for_Agent\\\\05.MCP_Server\\\\04.OPENAPI_MCP_Server\\\\tool-enhancement-plan.md\" \"C:\\\\Users\\\\skyop\\\\jaeho_template\\\\11.VibeCoding_for_Agent\\\\05.MCP_Server\\\\04.OPENAPI_MCP_Server\\\\mcp_tool_ideas_claude.md\")",
+      "Bash(claude mcp add:*)",
+      "mcp__Neon__list_projects",
+      "mcp__Neon__get_database_tables",
+      "mcp__Neon__describe_table_schema",
+      "mcp__Neon__run_sql"
+    ]
+  }
+}

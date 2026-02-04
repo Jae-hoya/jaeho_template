@@ -1,0 +1,8 @@
+{
+  "project_domain": "Seoul Culture Reservation",
+  "author_name": "Skyop",
+  "author_email": "skyop@example.com",
+  "api_key_env_var": "SEOUL_RESERVATION_API_KEY",
+  "description": "MCP server for Seoul public service culture event reservations",
+  "instructions": "Use this tool to search and browse culture event reservations in Seoul. Filter by category, status, and location."
+}

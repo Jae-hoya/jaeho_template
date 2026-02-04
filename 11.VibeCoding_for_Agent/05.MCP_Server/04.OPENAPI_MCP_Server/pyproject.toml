@@ -1,0 +1,24 @@
+[project]
+name = "seoul-culture-mcp"
+version = "0.1.0"
+description = "FastMCP server for Seoul cultural events"
+requires-python = ">=3.11"
+dependencies = [
+  "fastmcp>=2.14.4",
+  "httpx>=0.27.0",
+  "pydantic>=2.0.0",
+  "python-dotenv>=1.0.0",
+]
+
+[project.scripts]
+seoul-culture-mcp = "seoul_culture_mcp.server:main"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__query-docs",
+      "Bash(python:*)",
+      "Bash(npm search:*)",
+      "Bash(timeout /t 15 /nobreak)",
+      "Bash(ping:*)",
+      "Bash(npx:*)",
+      "Bash(echo:*)",
+      "Bash(PYTHONIOENCODING=utf-8 python:*)",
+      "mcp__neon__create_project",
+      "mcp__neon__list_projects"
+    ]
+  }
+}

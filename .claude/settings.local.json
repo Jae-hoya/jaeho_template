@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "Bash(python3:*)",
+      "Bash(pip3 install:*)",
+      "Bash(python.exe -m pip install:*)",
+      "Bash(/mnt/c/Python313/python.exe:*)",
+      "Bash(powershell -Command \"$env:PYTHONIOENCODING=''utf-8''; python fastcampus-ai-agent-vibecoding-main/Part2_Agent_Concept_Architecture/Chapter2_LLM_API_CALL/01_basic_openai_call.py\")",
+      "Bash(PYTHONIOENCODING=utf-8 /mnt/c/Python313/python.exe:*)",
+      "Bash(export PYTHONIOENCODING=utf-8)",
+      "Bash(PYTHONUTF8=1 /mnt/c/Python313/python.exe:*)"
+    ]
+  }
+}

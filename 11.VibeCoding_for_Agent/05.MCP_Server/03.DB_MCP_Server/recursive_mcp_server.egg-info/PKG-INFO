@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: recursive-mcp-server
+Version: 0.1.0
+Summary: MCP server for read-only PostgreSQL queries and safe candidate updates.
+Requires-Python: >=3.11
+Requires-Dist: mcp
+Requires-Dist: asyncpg

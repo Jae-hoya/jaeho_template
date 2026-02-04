@@ -1,0 +1,144 @@
+# AGENTS_KR.md
+
+이 저장소에서 에이전트가 작업할 때 참고하는 한국어 가이드입니다.
+코드/문서와 충돌하면 코드/문서를 우선하고 이 파일을 업데이트하세요.
+
+## 프로젝트 요약
+- 엔트리포인트: `langgraph_rag.py`(CLI), `streamlit_app.py`(Streamlit UI)
+- 하이브리드 검색 코어: `search_app/` (config, database, data_loader, hybrid_search)
+- DB 스키마: `loan_products` 테이블 + BM25/벡터 인덱스
+- 모델: ChatOpenAI `gpt-5-mini`, 임베딩 `text-embedding-3-small`
+- Python 3.11+ 사용, 타입 힌트는 3.10 호환 스타일 유지
+- 린터/포매터 미설정: 기존 스타일에 맞춰 최소 변경
+
+## 파일 맵
+- `langgraph_rag.py`: LangGraph 워크플로우, CLI 진입점, 라우팅 로직
+- `streamlit_app.py`: Streamlit UI, 세션 상태 관리
+- `search_app/config.py`: 환경 변수 로드, 토크나이저 설정, 상수
+- `search_app/database.py`: DB 연결, 테이블/인덱스 관리
+- `search_app/data_loader.py`: JSON 로드 + 배치 임베딩 생성
+- `search_app/hybrid_search.py`: BM25, 벡터 검색, RRF 결합
+- `search_app/setup.py`: DB 초기화 스크립트
+- `search_app/main.py`: 하이브리드 검색 CLI + Windows UTF-8 처리
+- `loan_products.json`: 데이터 로딩 소스
+- `test_langgraph_rag.py`: 통합 테스트 스크립트
+- `validate_setup.py`: 환경 검증 스크립트
+- 문서: `README.md`, `QUICKSTART.md`, `SETUP.md`, `DEPLOYMENT.md`, `DEPENDENCY.md`, `PRD.md`
+
+## 빌드/린트/테스트
+### 설치/검증
+- 의존성 설치: `pip install -r requirements.txt` (또는 `uv pip install -r requirements.txt`)
+- 환경 검증: `python validate_setup.py`
+### DB 초기화
+- 테이블/데이터/인덱스: `python -m search_app.setup`
+- OpenAI 임베딩 호출 및 DB 연결이 필요함
+### 린트/포맷
+- 설정된 도구 없음. 포맷만 바꾸는 PR은 만들지 말 것.
+### 테스트 (통합)
+- 스크립트 실행: `python test_langgraph_rag.py`
+- Pytest 전체: `python -m pytest`
+### 단일 테스트 실행
+- 이름 필터: `python -m pytest -k "test_direct_question"`
+- 노드 ID: `python -m pytest test_langgraph_rag.py::test_direct_question`
+- 수동 실행: REPL에서 함수 직접 호출
+### 테스트 사전 조건
+- `OPENAI_API_KEY`, DB 초기화, 네트워크 접근 필요
+- `search_app.setup`과 테스트는 OpenAI 비용이 발생할 수 있음
+
+## 실행 명령
+- Streamlit UI: `streamlit run streamlit_app.py`
+- LangGraph CLI: `python langgraph_rag.py "질문"`
+- 디버그: `python langgraph_rag.py "질문" --debug`
+- 하이브리드 검색 CLI: `python -m search_app.main "검색어"`
+- 노트북: `jupyter notebook test_langgraph_rag.ipynb`
+
+## 문서 빠른 링크
+- `README.md`: 개요/사용법/아키텍처
+- `QUICKSTART.md`: 5분 실행 가이드
+- `SETUP.md`: 설치/트러블슈팅 상세
+- `DEPENDENCY.md`: `search_app` 포함 구조 설명
+- `DEPLOYMENT.md`: 배포 옵션
+- `STREAMLIT_FEATURES.md`, `FIX_STREAMLIT.md`, `STREAMING_UPDATE.md`: UI 변경 내역
+
+## 초기 로컬 워크플로우
+- `.env`에 `OPENAI_API_KEY`, `DATABASE_URL` 설정 (또는 템플릿 경로 사용)
+- ParadeDB/Postgres 실행
+- `python -m search_app.setup` 실행 (테이블/데이터/인덱스)
+- Streamlit 또는 CLI 실행
+- 초기화 실패 시 `python validate_setup.py` 확인
+
+## 환경 설정
+- 필수 환경 변수:
+  - `OPENAI_API_KEY`
+  - `DATABASE_URL` (기본값: `postgresql://postgres:postgres@localhost:5433/postgres`)
+- 선택 환경 변수:
+  - `BM25_MODE`: `paradedb`(기본) 또는 `fts`
+  - `BM25_TOKENIZER`: `simple`(기본) 또는 `kiwi`
+  - `KIWI_POS_FILTER`: Kiwi 품사 태그 목록
+- 로딩 경로: `search_app/config.py`에서 `C:\Users\skyop\jaeho_template\.env` 로드
+- 문서에는 `C:\Users\skyop\jaeho_template\dotenv_windows` 또는 `C:\Users\skyop\jaeho_template\.dotenv_windows` 언급
+- BM25 모드/토크나이저 변경 시 `python -m search_app.setup` 재실행 필요
+- ParadeDB Docker 예시:
+  `docker run -d --name hybrid-search-paradedb -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=postgres -p 5433:5432 paradedb/paradedb:latest`
+- `.env`에 실제 키를 기록하고 커밋하지 말 것
+
+## Streamlit UI 관례
+- 세션 키: `messages`, `rag`, `debug_mode`, `pending_question`
+- 예제 질문 버튼은 `pending_question` 설정 후 `st.rerun()`
+- 에러는 assistant 메시지로 traceback 포함
+- `process_question()` 흐름 유지 (user 추가 → graph 실행 → assistant 추가)
+- "홈" 버튼 동작 유지 (대화 초기화)
+
+## 코드 스타일 가이드
+- 들여쓰기: 공백 4칸, 탭 금지
+- 따옴표: 문자열은 큰따옴표 사용
+- 임포트: 표준 라이브러리 → 서드파티 → 로컬 순서, 스타 임포트 금지
+- 타입: `typing.List`, `Dict`, `Tuple`, `Optional`, `TypedDict` 사용 (Py 3.10 호환)
+- 네이밍: snake_case(함수/변수), PascalCase(클래스), UPPER_SNAKE_CASE(상수)
+- Docstring: `"""요약"""` 형태 유지
+- SQL: 값은 반드시 `%s` 플레이스홀더 사용, 값에 f-string 금지
+- SQL 식별자: 테이블/컬럼 이름만 f-string (`Config.TABLE_NAME` 사용)
+- 에러 처리: DB/외부 호출은 try/except로 감싸고 명확히 출력
+- 트랜잭션: 쓰기 후 commit, 예외 시 rollback
+- 로깅: 현재는 `print` 사용; 새로운 로깅 프레임워크 추가 지양
+- 인코딩: UTF-8 유지, Windows UTF-8 처리 코드 제거 금지
+- 불필요한 포맷 변경 금지
+
+## 데이터/DB 패턴
+- `Database`는 context manager로 사용해 연결/해제 보장
+- 임베딩은 `DataLoader` 배치 생성 유지
+- 대량 삽입 시 batch commit 패턴 유지
+- 로딩 후 `create_bm25_index`, `create_vector_index` 호출
+- 검색 흐름: BM25 → 벡터 → RRF → 전체 row 조회 → RRF 순 정렬
+- 토큰화는 `Config.tokenize_for_bm25()` 사용
+- pg_search 실패 시 FTS/GIN fallback 유지
+
+## RAG 워크플로우 관례
+- 노드 흐름: route → retrieve → generate (`langgraph_rag.py` 참고)
+- 라우팅 모델은 `gpt-5-mini` 고정
+- 기본 검색 결과는 top-3; 변경 시 config/문서도 갱신
+- Streamlit은 `process_question()` 패턴 유지
+
+## 문제 해결 팁
+- 확장 설치 실패 시 경고 + GIN fallback 동작 확인
+- 토크나이저 변경 후 인덱스 재생성 필요
+- Streamlit 실패 시 `.env`/DB 연결 우선 확인
+- 테스트가 멈추면 OpenAI 키/네트워크 확인
+- Windows 출력 깨짐은 UTF-8 설정 유지
+
+## 보안/시크릿
+- `.env`나 실제 키는 커밋 금지
+- 키는 로그에 전체 출력 금지 (prefix만 출력)
+- `DATABASE_URL` 전체 노출 주의
+- SQL 값은 반드시 파라미터 바인딩
+
+## 에이전트 작업 메모
+- 의존성 추가 시 `requirements.txt`와 문서 동시 업데이트
+- Windows 인코딩 처리 제거 금지
+- 임베딩 배치 처리 유지 (API 호출 최적화)
+- 새로운 명령 추가 시 이 문서/README 갱신
+- 가능한 한 ASCII 명령으로 문서 작성
+
+## Cursor/Copilot 규칙
+- `.cursor/rules/` 또는 `.cursorrules` 없음
+- `.github/copilot-instructions.md` 없음

@@ -1,4 +1,10 @@
 """
+왜 이 base mcp를 만들어 두었느냐?!(custom하게) fastmcp도 쉽게 구성이 되어 있지만, 여러개 기능을 빨리빨리 만들어야 하고, 
+cursor나 claude를 사용한다면 규칙적으로 코드를 만들기 원하기를 때문에, 일반적인 껍데기를 정의해주는 것이다.
+fast mcp 규격에 맞게 인스턴스를 생성하는 것이다.
+server_name과 server_instructions을 vlftnwjrdmfh 받아서 인스턴스를 생성하는 것이다.
+
+------------------------------------------------------------------------
 **DO NOT UPDATE THIS FILE. ONLY HUMAN CAN UPDATE THIS FILE.**
 MCP 서버들의 공통 베이스 클래스.
 이 모듈은 모든 MCP 서버가 상속받아 사용할 수 있는 기본 클래스를 제공합니다.
@@ -61,7 +67,7 @@ class BaseMCPServer(ABC):
             port: 서버 포트
             host: 호스트 주소 (기본값: "0.0.0.0")
             debug: 디버그 모드 (기본값: False)
-            transport: MCP 전송 방식 (기본값: "streamable-http")
+            transport: MCP 전송 방식 (기본값: "streamable-http"), 우리는 docker로 올릴것이기 때문에 기존을 streaamable-http로 !
             server_instructions: 서버 설명 (기본값: "")
             json_response: JSON 응답 검증 여부 (기본값: False)
         """
@@ -97,6 +103,7 @@ class BaseMCPServer(ABC):
         """MCP 도구들을 등록합니다. 하위 클래스에서 구현해야 합니다."""
         pass
 
+    # 공식적으로 response를 해야하는 규격
     def create_standard_response(
         self,
         success: bool,
@@ -118,12 +125,12 @@ class BaseMCPServer(ABC):
         Returns:
             표준화된 응답 딕셔너리 (JSON 직렬화 가능)
         """
-
+        # response 규격
         response_model = StandardResponse(
             success=success, query=query, data=data, error=error, **kwargs
         )
 
-        return response_model.model_dump(exclude_none=True)
+        return response_model.model_dump(exclude_none=True) 
 
     async def handle_error(
         self, func_name: str, error: Exception, **context

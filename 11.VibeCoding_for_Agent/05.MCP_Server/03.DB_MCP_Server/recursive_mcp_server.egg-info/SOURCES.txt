@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+server.py
+recursive_mcp_server.egg-info/PKG-INFO
+recursive_mcp_server.egg-info/SOURCES.txt
+recursive_mcp_server.egg-info/dependency_links.txt
+recursive_mcp_server.egg-info/entry_points.txt
+recursive_mcp_server.egg-info/requires.txt
+recursive_mcp_server.egg-info/top_level.txt
