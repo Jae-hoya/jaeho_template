@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marketing Tools Suite</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    [v-cloak] { display: none; }
+    .animate-spin { animation: spin 1s linear infinite; }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div id="app" v-cloak>
+    <div class="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white p-4">
+      <div class="max-w-6xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-8">
+          <h1 class="text-3xl font-bold bg-gradient-to-r from-orange-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+            Marketing Tools Suite
+          </h1>
+          <p class="text-slate-400 mt-2">카피조 • Chenius Chat • Brief Reader</p>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="flex gap-2 mb-6 justify-center flex-wrap">
+          <button
+            v-for="tab in tabs"
+            :key="tab.id"
+            @click="activeTab = tab.id"
+            :class="[
+              'flex items-center gap-2 px-4 py-2 rounded-lg transition-all',
+              activeTab === tab.id
+                ? 'bg-gradient-to-r shadow-lg ' + tab.color
+                : 'bg-slate-700/50 hover:bg-slate-700'
+            ]"
+          >
+            <span>{{ tab.icon }}</span>
+            {{ tab.name }}
+          </button>
+        </div>
+
+        <!-- ==================== COPYJOE TAB ==================== -->
+        <div v-if="activeTab === 'copyjoe'" class="space-y-6">
+          <!-- Copy Type Selection -->
+          <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
+            <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+              ✨ 카피 유형 선택
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <button
+                v-for="type in copyTypes"
+                :key="type.id"
+                @click="copyType = type.id"
+                :class="[
+                  'p-4 rounded-lg border transition-all text-left',
+                  copyType === type.id
+                    ? 'border-orange-500 bg-orange-500/20'
+                    : 'border-slate-600 hover:border-slate-500'
+                ]"
+              >
+                <span class="text-2xl">{{ type.icon }}</span>
+                <div class="font-medium mt-2">{{ type.name }}</div>
+                <div class="text-xs text-slate-400">{{ type.desc }}</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Brand Info Input -->
+          <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
+            <h2 class="text-xl font-semibold mb-4">📝 브랜드 정보 입력</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+              <input
+                v-model="copyInput.brand"
+                placeholder="브랜드/제품명"
+                class="w-full p-3 rounded-lg bg-slate-700 border border-slate-600 focus:border-orange-500 outline-none"
+              />
+              <input
+                v-model="copyInput.target"
+                placeholder="타겟 고객 (예: 30대 직장인 여성)"
+                class="w-full p-3 rounded-lg bg-slate-700 border border-slate-600 focus:border-orange-500 outline-none"
+              />
+              <input
+                v-model="copyInput.benefit"
+                placeholder="핵심 혜택"
+                class="w-full p-3 rounded-lg bg-slate-700 border border-slate-600 focus:border-orange-500 outline-none"
+              />
+              <input
+                v-model="copyInput.problem"
+                placeholder="고객의 문제/고민"
+                class="w-full p-3 rounded-lg bg-slate-700 border border-slate-600 focus:border-orange-500 outline-none"
+              />
+            </div>
+
+            <!-- File Upload -->
+            <div class="mt-4 flex gap-3 items-center">
+              <label class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-700 cursor-pointer hover:bg-slate-600 transition">
+                📁 RAG 파일 업로드
+                <input type="file" class="hidden" accept=".txt,.md,.csv" @change="handleCopyFileUpload" />
+              </label>
+              <span v-if="uploadedFile" class="text-sm text-green-400 flex items-center gap-1">
+                ✓ {{ uploadedFile.name }}
+              </span>
+            </div>
+
+            <button
+              @click="generateCopy"
+              :disabled="loading || !copyInput.brand"
+              class="mt-4 w-full py-3 rounded-lg bg-gradient-to-r from-orange-500 to-red-500 font-semibold hover:opacity-90 disabled:opacity-50 flex items-center justify-center gap-2"
+            >
+              <span v-if="loading" class="animate-spin">⟳</span>
+              <span v-else>✨</span>
+              카피 생성하기
+            </button>
+          </div>
+
+          <!-- Generated Copies -->
+          <div v-if="copyResults.length > 0" class="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
+            <h2 class="text-xl font-semibold mb-4">✨ 생성된 카피</h2>
+            <div class="space-y-3">
+              <div
+                v-for="(item, idx) in copyResults"
+                :key="idx"
+                class="p-4 rounded-lg bg-slate-700/50 border border-slate-600 group"
+              >
+                <div class="flex justify-between items-start">
+                  <p class="text-lg font-medium text-orange-300">"{{ item.copy }}"</p>
+                  <button
+                    @click="copyToClipboard(item.copy)"
+                    class="opacity-0 group-hover:opacity-100 p-1 hover:bg-slate-600 rounded transition"
+                  >
+                    📋
+                  </button>
+                </div>
+                <p v-if="item.rationale" class="text-sm text-slate-400 mt-2">💡 {{ item.rationale }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== CHENIUS CHAT TAB ==================== -->
+        <div v-if="activeTab === 'chenius'" class="space-y-6">
+          <!-- Dual Chat Windows -->
+          <div class="grid md:grid-cols-2 gap-4">
+            <div
+              v-for="(modelKey, idx) in ['model1', 'model2']"
+              :key="modelKey"
+              class="bg-slate-800/50 rounded-xl p-4 border border-slate-700"
+            >
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="font-semibold flex items-center gap-2">
+                  {{ idx === 0 ? '🎨 창의적 관점' : '📊 실용적 관점' }}
+                </h3>
+                <button
+                  v-if="chatResults[modelKey].length > 0"
+                  @click="selectBestResponse(modelKey)"
+                  :class="[
+                    'px-3 py-1 rounded-lg text-sm transition',
+                    selectedModel === modelKey
+                      ? 'bg-green-500 text-white'
+                      : 'bg-slate-600 hover:bg-slate-500'
+                  ]"
+                >
+                  {{ selectedModel === modelKey ? '✓' : 'Select' }}
+                </button>
+              </div>
+              
+              <div class="h-64 overflow-y-auto space-y-2 mb-3 p-2 bg-slate-900/50 rounded-lg">
+                <div
+                  v-for="(msg, i) in chatResults[modelKey]"
+                  :key="i"
+                  :class="[
+                    'p-2 rounded text-sm',
+                    msg.role === 'user'
+                      ? 'bg-blue-600/30 ml-8'
+                      : 'bg-slate-700/50 mr-8'
+                  ]"
+                >
+                  {{ msg.content }}
+                </div>
+                <p v-if="chatResults[modelKey].length === 0" class="text-slate-500 text-center py-8">
+                  대화를 시작하세요
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Input Area -->
+          <div class="flex gap-3">
+            <input
+              v-model="chatInput"
+              @keypress.enter="runCheniusChat"
+              placeholder="마케팅 아이디어나 질문을 입력하세요..."
+              class="flex-1 p-3 rounded-lg bg-slate-700 border border-slate-600 focus:border-blue-500 outline-none"
+            />
+            <button
+              @click="runCheniusChat"
+              :disabled="loading || !chatInput.trim()"
+              class="px-6 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 font-semibold hover:opacity-90 disabled:opacity-50"
+            >
+              <span v-if="loading" class="animate-spin">⟳</span>
+              <span v-else>→</span>
+            </button>
+          </div>
+
+          <!-- Chat History -->
+          <div v-if="chatHistory.length > 0" class="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
+            <h3 class="font-semibold mb-2">📜 선택된 대화 히스토리</h3>
+            <div class="space-y-2 text-sm">
+              <div
+                v-for="(msg, i) in chatHistory.slice(-4)"
+                :key="i"
+                :class="['p-2 rounded', msg.role === 'user' ? 'bg-blue-600/20' : 'bg-green-600/20']"
+              >
+                <span class="font-medium">{{ msg.role === 'user' ? '👤' : '🤖' }}</span>
+                {{ msg.content.slice(0, 100) }}...
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== BRIEF READER TAB ==================== -->
+        <div v-if="activeTab === 'brief'" class="space-y-6">
+          <!-- Input Section -->
+          <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
+            <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+              📄 클라이언트 브리프 입력
+            </h2>
+            
+            <!-- File Upload -->
+            <label class="flex items-center gap-2 px-4 py-3 rounded-lg bg-slate-700 cursor-pointer hover:bg-slate-600 transition mb-4 w-fit">
+              📁 브리프 파일 업로드
+              <input type="file" class="hidden" accept=".txt,.md,.pdf" @change="handleBriefFileUpload" />
+            </label>
+            <p v-if="briefFile" class="text-sm text-green-400 mb-2 flex items-center gap-1">
+              ✓ {{ briefFile.name }}
+            </p>
+
+            <!-- Text Input -->
+            <textarea
+              v-model="briefText"
+              placeholder="또는 브리프 내용을 직접 붙여넣기..."
+              class="w-full h-40 p-3 rounded-lg bg-slate-700 border border-slate-600 focus:border-green-500 outline-none resize-none"
+            ></textarea>
+
+            <button
+              @click="analyzeBrief"
+              :disabled="loading || (!briefText.trim() && !briefFile)"
+              class="mt-4 w-full py-3 rounded-lg bg-gradient-to-r from-green-500 to-teal-500 font-semibold hover:opacity-90 disabled:opacity-50 flex items-center justify-center gap-2"
+            >
+              <span v-if="loading" class="animate-spin">⟳</span>
+              <span v-else>📄</span>
+              브리프 분석하기
+            </button>
+          </div>
+
+          <!-- Summary Section -->
+          <div v-if="briefSummary" class="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
+            <h2 class="text-xl font-semibold mb-4">📋 브리프 요약</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div v-if="briefSummary.company" class="p-3 rounded-lg bg-slate-700/50">
+                <span class="text-slate-400 text-sm">회사명</span>
+                <p class="font-medium">{{ briefSummary.company }}</p>
+              </div>
+              <div v-if="briefSummary.product" class="p-3 rounded-lg bg-slate-700/50">
+                <span class="text-slate-400 text-sm">제품/서비스</span>
+                <p class="font-medium">{{ briefSummary.product }}</p>
+              </div>
+              <div v-if="briefSummary.target" class="p-3 rounded-lg bg-slate-700/50">
+                <span class="text-slate-400 text-sm">타겟 고객</span>
+                <p class="font-medium">{{ briefSummary.target }}</p>
+              </div>
+              <div v-if="briefSummary.usp" class="p-3 rounded-lg bg-slate-700/50">
+                <span class="text-slate-400 text-sm">차별점 (USP)</span>
+                <p class="font-medium">{{ briefSummary.usp }}</p>
+              </div>
+              <div v-if="briefSummary.problem" class="p-3 rounded-lg bg-slate-700/50 md:col-span-2">
+                <span class="text-slate-400 text-sm">해결 문제</span>
+                <p class="font-medium">{{ briefSummary.problem }}</p>
+              </div>
+              <div v-if="briefSummary.goals && briefSummary.goals.length" class="p-3 rounded-lg bg-slate-700/50">
+                <span class="text-slate-400 text-sm">목표</span>
+                <div class="flex flex-wrap gap-2 mt-1">
+                  <span v-for="(goal, i) in briefSummary.goals" :key="i" class="px-2 py-1 bg-green-600/30 rounded text-sm">
+                    {{ goal }}
+                  </span>
+                </div>
+              </div>
+              <div v-if="briefSummary.keywords && briefSummary.keywords.length" class="p-3 rounded-lg bg-slate-700/50">
+                <span class="text-slate-400 text-sm">키워드</span>
+                <div class="flex flex-wrap gap-2 mt-1">
+                  <span v-for="(keyword, i) in briefSummary.keywords" :key="i" class="px-2 py-1 bg-blue-600/30 rounded text-sm">
+                    {{ keyword }}
+                  </span>
+                </div>
+              </div>
+              <div v-if="briefSummary.insights" class="p-3 rounded-lg bg-gradient-to-r from-purple-600/20 to-pink-600/20 md:col-span-2">
+                <span class="text-slate-400 text-sm">💡 전략적 인사이트</span>
+                <p class="font-medium mt-1">{{ briefSummary.insights }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- API Settings -->
+        <div class="mt-8 text-center">
+          <button @click="showSettings = !showSettings" class="text-slate-500 hover:text-slate-300 text-sm">
+            ⚙️ API 설정
+          </button>
+        </div>
+        
+        <div v-if="showSettings" class="mt-4 bg-slate-800/50 rounded-xl p-6 border border-slate-700">
+          <h3 class="font-semibold mb-4">API 설정</h3>
+          <div class="space-y-4">
+            <div>
+              <label class="text-sm text-slate-400">Backend API URL</label>
+              <input
+                v-model="apiBaseUrl"
+                placeholder="http://localhost:8000"
+                class="w-full p-2 mt-1 rounded-lg bg-slate-700 border border-slate-600 outline-none"
+              />
+            </div>
+            <p class="text-xs text-slate-500">
+              백엔드 서버가 실행 중이어야 합니다: <code class="bg-slate-700 px-1 rounded">python main.py</code>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const { createApp, ref, reactive } = Vue
+
+    createApp({
+      setup() {
+        // API Settings
+        const apiBaseUrl = ref('http://localhost:8000')
+        const showSettings = ref(false)
+        const loading = ref(false)
+
+        // Tab State
+        const activeTab = ref('copyjoe')
+        const tabs = [
+          { id: 'copyjoe', name: '카피조', icon: '✏️', color: 'from-orange-500 to-red-500' },
+          { id: 'chenius', name: 'Chenius Chat', icon: '💬', color: 'from-blue-500 to-purple-500' },
+          { id: 'brief', name: 'Brief Reader', icon: '📄', color: 'from-green-500 to-teal-500' },
+        ]
+
+        // ============ Copyjoe State ============
+        const copyType = ref('slogan')
+        const copyInput = reactive({ brand: '', target: '', benefit: '', problem: '' })
+        const copyResults = ref([])
+        const uploadedFile = ref(null)
+
+        const copyTypes = [
+          { id: 'slogan', name: '슬로건형', desc: '브랜드 이미지 각인', icon: '🎯' },
+          { id: 'problem', name: '문제 해결형', desc: '고객 고민 건드리기', icon: '💡' },
+          { id: 'benefit', name: '혜택 강조형', desc: '결과를 먼저 보여주기', icon: '🎁' },
+          { id: 'cta', name: 'CTA형', desc: '행동 직접 요구', icon: '👆' },
+        ]
+
+        // ============ Chenius Chat State ============
+        const chatInput = ref('')
+        const chatResults = reactive({ model1: [], model2: [] })
+        const selectedModel = ref(null)
+        const chatHistory = ref([])
+
+        // ============ Brief Reader State ============
+        const briefFile = ref(null)
+        const briefText = ref('')
+        const briefSummary = ref(null)
+
+        // ============ API Helpers ============
+        const apiCall = async (endpoint, options = {}) => {
+          const response = await fetch(`${apiBaseUrl.value}${endpoint}`, {
+            headers: { 'Content-Type': 'application/json', ...options.headers },
+            ...options
+          })
+          if (!response.ok) throw new Error(`API Error: ${response.status}`)
+          return await response.json()
+        }
+
+        // ============ Copyjoe Methods ============
+        const handleCopyFileUpload = (e) => {
+          const file = e.target.files[0]
+          if (!file) return
+          const reader = new FileReader()
+          reader.onload = (event) => {
+            uploadedFile.value = { name: file.name, content: event.target.result }
+          }
+          reader.readAsText(file)
+        }
+
+        const generateCopy = async () => {
+          loading.value = true
+          try {
+            const result = await apiCall('/api/copyjoe/generate', {
+              method: 'POST',
+              body: JSON.stringify({
+                copy_type: copyType.value,
+                brand: copyInput.brand,
+                target: copyInput.target,
+                benefit: copyInput.benefit,
+                problem: copyInput.problem,
+                rag_content: uploadedFile.value?.content || ''
+              })
+            })
+            copyResults.value = result.copies
+          } catch (err) {
+            alert('API 오류: ' + err.message + '\n\n백엔드 서버가 실행 중인지 확인하세요.')
+          } finally {
+            loading.value = false
+          }
+        }
+
+        // ============ Chenius Chat Methods ============
+        const runCheniusChat = async () => {
+          if (!chatInput.value.trim()) return
+          loading.value = true
+          try {
+            const result = await apiCall('/api/chenius/chat', {
+              method: 'POST',
+              body: JSON.stringify({ message: chatInput.value, history: chatHistory.value })
+            })
+            chatResults.model1.push(
+              { role: 'user', content: chatInput.value },
+              { role: 'assistant', content: result.creative }
+            )
+            chatResults.model2.push(
+              { role: 'user', content: chatInput.value },
+              { role: 'assistant', content: result.practical }
+            )
+            chatInput.value = ''
+            selectedModel.value = null
+          } catch (err) {
+            alert('API 오류: ' + err.message)
+          } finally {
+            loading.value = false
+          }
+        }
+
+        const selectBestResponse = (modelKey) => {
+          const messages = chatResults[modelKey]
+          const lastResponse = messages[messages.length - 1]
+          if (lastResponse?.role === 'assistant') {
+            const userMessage = messages[messages.length - 2]
+            chatHistory.value.push(
+              { role: 'user', content: userMessage?.content },
+              { role: 'assistant', content: lastResponse.content }
+            )
+            selectedModel.value = modelKey
+          }
+        }
+
+        // ============ Brief Reader Methods ============
+        const handleBriefFileUpload = (e) => {
+          const file = e.target.files[0]
+          if (!file) return
+          const reader = new FileReader()
+          reader.onload = (event) => {
+            briefFile.value = { name: file.name }
+            briefText.value = event.target.result
+          }
+          reader.readAsText(file)
+        }
+
+        const analyzeBrief = async () => {
+          if (!briefText.value.trim()) return
+          loading.value = true
+          try {
+            const result = await apiCall('/api/brief/analyze', {
+              method: 'POST',
+              body: JSON.stringify({ content: briefText.value })
+            })
+            briefSummary.value = result
+          } catch (err) {
+            alert('API 오류: ' + err.message)
+          } finally {
+            loading.value = false
+          }
+        }
+
+        // ============ Utils ============
+        const copyToClipboard = (text) => {
+          navigator.clipboard.writeText(text)
+        }
+
+        return {
+          // Settings
+          apiBaseUrl, showSettings, loading,
+          // Tabs
+          activeTab, tabs,
+          // Copyjoe
+          copyType, copyInput, copyResults, uploadedFile, copyTypes,
+          handleCopyFileUpload, generateCopy,
+          // Chenius Chat
+          chatInput, chatResults, selectedModel, chatHistory,
+          runCheniusChat, selectBestResponse,
+          // Brief Reader
+          briefFile, briefText, briefSummary,
+          handleBriefFileUpload, analyzeBrief,
+          // Utils
+          copyToClipboard
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>

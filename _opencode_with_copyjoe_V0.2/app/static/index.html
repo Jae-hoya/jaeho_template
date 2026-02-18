@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Copyjoe - 설득 카피 생성기</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="mesh"></div>
+  <main class="page">
+    <header class="hero">
+      <p class="eyebrow">COPYJOE v1.1</p>
+      <h1>행동을 만드는 마케팅 카피를 빠르게 생성하세요</h1>
+      <p class="sub">FastAPI + LangChain + RAG + Tavily 기반 파이프라인으로 문서 근거와 웹 근거를 함께 반영합니다.</p>
+      <div class="status-row" id="statusRow"></div>
+    </header>
+
+    <section class="card">
+      <h2>카피 생성</h2>
+      <div class="grid two">
+        <label>상품명<input id="product_name" value="Copyjoe" /></label>
+        <label>타깃<input id="target_audience" value="성과 마케터" /></label>
+        <label>페인포인트<input id="pain_point" value="카피를 매번 새로 작성하는 시간이 오래 걸린다" /></label>
+        <label>차별점<input id="differentiator" value="RAG + 웹 검색 기반 근거 중심 생성" /></label>
+        <label>톤<input id="tone" value="신뢰형" /></label>
+        <label>채널<input id="channel" value="상세페이지" /></label>
+      </div>
+
+      <div class="grid three">
+        <label>목표
+          <select id="objective">
+            <option value="brand_memory">brand_memory</option>
+            <option value="click" selected>click</option>
+            <option value="add_to_cart">add_to_cart</option>
+            <option value="consultation">consultation</option>
+          </select>
+        </label>
+        <label>언어<input id="language" value="ko" /></label>
+        <label>top_k<input id="top_k" value="5" type="number" min="1" max="20" /></label>
+      </div>
+
+      <div class="checkbox-row">
+        <label><input id="use_rag" type="checkbox" checked /> RAG 사용</label>
+        <label><input id="web_search_mode" type="checkbox" /> Tavily 웹 검색 사용</label>
+      </div>
+
+      <div class="checkbox-row styles">
+        <label><input type="checkbox" value="head" checked /> head</label>
+        <label><input type="checkbox" value="body" checked /> body</label>
+        <label><input type="checkbox" value="cta" checked /> cta</label>
+        <label><input type="checkbox" value="slogan" checked /> slogan</label>
+        <label><input type="checkbox" value="sns" checked /> sns</label>
+        <label><input type="checkbox" value="description" checked /> description</label>
+      </div>
+
+      <button class="primary" id="generateBtn">카피 생성</button>
+      <pre id="copyResult" class="result"></pre>
+    </section>
+
+    <section class="card">
+      <h2>랜딩페이지 분석 (h1/h2/CTA/본문)</h2>
+      <div class="grid two">
+        <label>URL 직접 입력<input id="landing_url" placeholder="https://example.com" /></label>
+        <label>Tavily 검색 쿼리<input id="landing_query" placeholder="예: 생산성 SaaS landing page" /></label>
+      </div>
+      <button class="secondary" id="analyzeBtn">분석 실행</button>
+      <pre id="landingResult" class="result"></pre>
+    </section>
+
+    <footer class="footer">
+      <a href="/docs" target="_blank" rel="noreferrer">Swagger Docs</a>
+      <a href="/openapi.json" target="_blank" rel="noreferrer">OpenAPI JSON</a>
+      <a href="/health" target="_blank" rel="noreferrer">Health</a>
+    </footer>
+  </main>
+
+  <script>
+    const statusRow = document.getElementById("statusRow");
+    const copyResult = document.getElementById("copyResult");
+    const landingResult = document.getElementById("landingResult");
+
+    async function checkEndpoint(path, label) {
+      try {
+        const res = await fetch(path);
+        const ok = res.ok;
+        const badge = document.createElement("span");
+        badge.className = `badge ${ok ? "ok" : "fail"}`;
+        badge.textContent = `${label}: ${res.status}`;
+        statusRow.appendChild(badge);
+      } catch {
+        const badge = document.createElement("span");
+        badge.className = "badge fail";
+        badge.textContent = `${label}: down`;
+        statusRow.appendChild(badge);
+      }
+    }
+
+    function selectedStyles() {
+      return [...document.querySelectorAll('.styles input[type="checkbox"]')]
+        .filter((node) => node.checked)
+        .map((node) => node.value);
+    }
+
+    async function generateCopy() {
+      copyResult.textContent = "생성 중...";
+
+      const payload = {
+        product_name: document.getElementById("product_name").value,
+        target_audience: document.getElementById("target_audience").value,
+        pain_point: document.getElementById("pain_point").value,
+        differentiator: document.getElementById("differentiator").value,
+        tone: document.getElementById("tone").value,
+        objective: document.getElementById("objective").value,
+        styles: selectedStyles(),
+        channel: document.getElementById("channel").value,
+        language: document.getElementById("language").value,
+        web_search_mode: document.getElementById("web_search_mode").checked,
+        use_rag: document.getElementById("use_rag").checked,
+        top_k: Number(document.getElementById("top_k").value),
+      };
+
+      const res = await fetch("/api/v1/copy/generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const body = await res.json();
+      copyResult.textContent = JSON.stringify(body, null, 2);
+    }
+
+    async function analyzeLanding() {
+      landingResult.textContent = "분석 중...";
+      const url = document.getElementById("landing_url").value.trim();
+      const query = document.getElementById("landing_query").value.trim();
+      const payload = { url: url || null, query: query || null, max_results: 5 };
+
+      const res = await fetch("/api/v1/web/landing/analyze", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const body = await res.json();
+      landingResult.textContent = JSON.stringify(body, null, 2);
+    }
+
+    document.getElementById("generateBtn").addEventListener("click", generateCopy);
+    document.getElementById("analyzeBtn").addEventListener("click", analyzeLanding);
+
+    checkEndpoint("/health", "health");
+    checkEndpoint("/openapi.json", "openapi");
+    checkEndpoint("/docs", "docs");
+  </script>
+</body>
+</html>

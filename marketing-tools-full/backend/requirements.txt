@@ -1,0 +1,21 @@
+# FastAPI
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+python-multipart==0.0.6
+
+# LangChain
+langchain==0.1.6
+langchain-anthropic==0.1.1
+langchain-core==0.1.22
+
+# Anthropic
+anthropic==0.18.1
+
+# Utils
+pydantic==2.6.0
+python-dotenv==1.0.0
+
+# Optional: RAG Support
+# langchain-community==0.0.20
+# chromadb==0.4.22
+# sentence-transformers==2.3.1
